@@ -60,7 +60,8 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     'nuxt-schema-org',
     'nuxt-link-checker',
-    'nuxt-seo-utils'
+    'nuxt-seo-utils',
+    '@nuxtjs/turnstile'
   ],
 
   image: {
@@ -120,5 +121,10 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+
+  turnstile: {
+    siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+    secretKey: process.env.TURNSTILE_SECRET_KEY
   }
 })

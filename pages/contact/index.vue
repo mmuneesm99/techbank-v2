@@ -119,11 +119,14 @@
                             required
                         ></textarea>
                     </div>
+                    <div class="flex justify-center">
+                        <NuxtTurnstile v-model="turnstileToken" />
+                    </div>
                     <div>
                         <button 
                             type="submit"
                             class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg"
-                            :disabled="isSubmitting"
+                            :disabled="isSubmitting || !turnstileToken"
                         >
                             <span v-if="isSubmitting">Sending...</span>
                             <span v-else>Send Message</span>
@@ -172,6 +175,7 @@ const error = ref('')
 const success = ref('')
 const isDropdownOpen = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
+const turnstileToken = ref('')
 
 const countries: Country[] = [
     { code: '+91', flag: 'in', name: 'India' },
@@ -234,10 +238,15 @@ const resetForm = (): void => {
     }
     error.value = ''
     success.value = ''
+    turnstileToken.value = ''
 }
 
 const handleSubmit = async (): Promise<void> => {
     if (!validateForm()) return
+    if (!turnstileToken.value) {
+        error.value = 'Please complete the Turnstile verification'
+        return
+    }
 
     isSubmitting.value = true
     error.value = ''
@@ -266,7 +275,8 @@ const handleSubmit = async (): Promise<void> => {
                 name: form.value.name,
                 email: form.value.email,
                 phone: `${selectedCountry.value.code}${form.value.phone}`,
-                message: form.value.message
+                message: form.value.message,
+                turnstileToken: turnstileToken.value
             }),
             credentials: 'same-origin'
         })

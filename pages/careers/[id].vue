@@ -186,10 +186,23 @@
               class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
             TechBank.
           </div>
+          <div class="flex justify-center mb-4">
+            <NuxtTurnstile v-model="turnstileToken" />
+          </div>
           <button type="submit"
-            class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit">
-            Submit
-            <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
+            class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit disabled:opacity-50 disabled:cursor-not-allowed"
+            :disabled="isSubmitting || !turnstileToken">
+            <template v-if="isSubmitting">
+              <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Submitting...
+            </template>
+            <template v-else>
+              Submit
+              <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
+            </template>
           </button>
         </form>
       </div>
@@ -277,6 +290,7 @@ const showDrawer = ref(false)
 const resumeName = ref('')
 const isSubmitting = ref(false)
 const submissionStatus = ref(null)
+const turnstileToken = ref('')
 
 const form = reactive({
   firstName: '',
@@ -354,6 +368,10 @@ const validateForm = () => {
 
 const handleSubmit = async () => {
   if (!validateForm()) return
+  if (!turnstileToken.value) {
+    errors.resume = 'Please complete the Turnstile verification'
+    return
+  }
 
   isSubmitting.value = true
   submissionStatus.value = null
@@ -380,6 +398,7 @@ const handleSubmit = async () => {
     formData.append('position', job.value.title)
     formData.append('experience', form.experience)
     formData.append('message', form.message)
+    formData.append('turnstileToken', turnstileToken.value)
     if (form.resume) {
       formData.append('resume', form.resume)
     }
@@ -412,6 +431,7 @@ const handleSubmit = async () => {
     Object.keys(errors).forEach(key => {
       errors[key] = ''
     })
+    turnstileToken.value = '' // Reset Turnstile token
   } catch (error) {
     submissionStatus.value = {
       type: 'error',
