@@ -13,7 +13,7 @@
             <div v-for="(member, index) in team" :key="member.id"
                 class="relative overflow-hidden h-fit w-full flex flex-col items-center p-6 animate-fade-up"
                 :style="{ animationDelay: `${index * 0.1}s` }">
-                <img src="/images/team-card.webp" alt="TechBank Logo" width="100%" height="100%"
+                <img src="/images/team-card.webp" alt="TechBank" width="100%" height="100%"
                     class="w-full h-full absolute top-0 left-0" />
                 <div class="relative text-center h-full w-full group">
                     <img :src="member.photo" :alt="member.name" class="object-cover mb-2  transform transition-transform duration-300 group-hover:scale-105" />

@@ -28,7 +28,7 @@
                         </div>
                         <div>
                             <ul class="text-white flex flex-col md:items-end items-left text-left gap-2">
-                                <li class="underline">Officea</li>
+                                <li class="underline">Offices</li>
                                 <li>Infopark</li>
                                 <li>Kochi - Kerala</li>
                             </ul>
@@ -51,7 +51,9 @@
                         <Icon name="teenyicons:youtube-outline" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
                 </div>
-                <p class="hidden md:block">&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
+                <div class="hidden text-center md:block w-full flex justify-center">
+                    <p >&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
+                </div>
                 <div class="flex items-center gap-5 -mt-5 md:mt-0 py-3 md:py-0">
                     <nuxt-link to="/privacy-policy" class="text-white">Privacy Policy</nuxt-link>
                     <nuxt-link to="/terms-and-conditions" class="text-white">Terms & Conditions</nuxt-link>

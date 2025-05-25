@@ -24,8 +24,7 @@
           </button>
           <button
             class="bg-button-gradient text-white px-8 py-2 rounded-full flex items-center gap-2 font-ninetea text-base font-semibold shadow"
-            @click="showDrawer = true"
-          >
+            @click="showDrawer = true">
             Apply
             <Icon name="pixelarticons:arrow-right" class="text-white text-xl -rotate-45" />
           </button>
@@ -78,25 +77,35 @@
       </div>
     </div>
     <DrawerModal v-model="showDrawer">
-      <img src="/images/applymodel.webp"
-                        class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
+      <img src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
+
       <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="handleSubmit">
         <div class="text-[#BB83FF] text-lg font-ninetea mb-1">Ready to Build the Future?</div>
-        <div class="text-white font-thin text-2xl font-nyx mb-6 tracking-wider">DROP YOUR DETAILS BELOW.</div>
+        <div class="text-white font-thin text-2xl font-nyx mb-2 tracking-wider">DROP YOUR DETAILS BELOW.</div>
+        <div class="text-center flex gap-5 items-center py-2 rounded-md mb-3 ">
+          <p class="text-sm text-gray-300 font-ninetea">Applying for:</p>
+          <p class="text-lg text-white font-ninetea font-semibold tracking-wide">{{ job.title }}</p>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <label class="block text-white text-sm mb-1">First Name *</label>
-            <input type="text" v-model="firstName" @blur="firstNameBlur" placeholder="Enter Your First Name" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': firstNameError }" />
+            <input type="text" v-model="firstName" @blur="firstNameBlur" placeholder="Enter Your First Name"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': firstNameError }" />
             <span v-if="firstNameError" class="text-xs text-red-500 mt-1 block">{{ firstNameError }}</span>
           </div>
           <div>
             <label class="block text-white text-sm mb-1">Last Name *</label>
-            <input type="text" v-model="lastName" @blur="lastNameBlur" placeholder="Enter Your Last Name" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': lastNameError }" />
+            <input type="text" v-model="lastName" @blur="lastNameBlur" placeholder="Enter Your Last Name"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': lastNameError }" />
             <span v-if="lastNameError" class="text-xs text-red-500 mt-1 block">{{ lastNameError }}</span>
           </div>
           <div>
             <label class="block text-white text-sm mb-1">E Mail *</label>
-            <input type="email" v-model="email" @blur="emailBlur" placeholder="Enter Your Email" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': emailError }" />
+            <input type="email" v-model="email" @blur="emailBlur" placeholder="Enter Your Email"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': emailError }" />
             <span v-if="emailError" class="text-xs text-red-500 mt-1 block">{{ emailError }}</span>
           </div>
           <div>
@@ -110,19 +119,17 @@
                     <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
                     <span>{{ selectedCountry.code }}</span>
                   </div>
-                  <Icon name="heroicons:chevron-down" class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': isDropdownOpen }" />
+                  <Icon name="heroicons:chevron-down" class="w-4 h-4 transition-transform duration-200"
+                    :class="{ 'rotate-180': isDropdownOpen }" />
                 </button>
                 <Transition enter-active-class="transition duration-100 ease-out"
-                  enter-from-class="transform scale-95 opacity-0"
-                  enter-to-class="transform scale-100 opacity-100"
-                  leave-active-class="transition duration-75 ease-in"
-                  leave-from-class="transform scale-100 opacity-100"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <div v-if="isDropdownOpen"
                     class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden">
                     <div class="py-1 max-h-60 overflow-auto">
-                      <button v-for="country in countries" :key="country.code"
-                        @mousedown="selectCountry(country)"
+                      <button v-for="country in countries" :key="country.code" @mousedown="selectCountry(country)"
                         class="w-full px-4 py-2 text-left text-white hover:bg-[#3B2A5A] flex items-center gap-2 transition-colors duration-150"
                         :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }">
                         <Icon :name="`flagpack:${country.flag}`" class="w-5 h-5" />
@@ -132,42 +139,55 @@
                   </div>
                 </Transition>
               </div>
-              <input type="tel" v-model="phone" @blur="phoneBlur" placeholder="Enter Your Phone Number" class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': phoneError }" />
+              <input type="tel" v-model="phone" @blur="phoneBlur" placeholder="Enter Your Phone Number"
+                class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+                :class="{ 'border-red-500': phoneError }" />
             </div>
             <span v-if="countryCodeError" class="text-xs text-red-500 mt-1 block">{{ countryCodeError }}</span>
             <span v-if="phoneError" class="text-xs text-red-500 mt-1 block">{{ phoneError }}</span>
           </div>
           <div>
             <label class="block text-white text-sm mb-1">Current Role</label>
-            <input type="text" v-model="currentRole" @blur="currentRoleBlur" placeholder="Enter Your Current Role" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': currentRoleError }" />
+            <input type="text" v-model="currentRole" @blur="currentRoleBlur" placeholder="Enter Your Current Role"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': currentRoleError }" />
             <span v-if="currentRoleError" class="text-xs text-red-500 mt-1 block">{{ currentRoleError }}</span>
           </div>
           <div>
             <label class="block text-white text-sm mb-1">Years of Experience</label>
-            <input type="text" v-model="experience" @blur="experienceBlur" placeholder="Enter Years of Experience" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': experienceError }" />
+            <input type="text" v-model="experience" @blur="experienceBlur" placeholder="Enter Years of Experience"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': experienceError }" />
             <span v-if="experienceError" class="text-xs text-red-500 mt-1 block">{{ experienceError }}</span>
           </div>
         </div>
         <div class="mb-4">
           <label class="block text-white text-sm mb-1">Additional Information's</label>
-          <textarea rows="3" v-model="message" @blur="messageBlur" placeholder="Enter Your Message" class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]" :class="{ 'border-red-500': messageError }"></textarea>
+          <textarea rows="3" v-model="message" @blur="messageBlur" placeholder="Enter Your Message"
+            class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+            :class="{ 'border-red-500': messageError }"></textarea>
           <span v-if="messageError" class="text-xs text-red-500 mt-1 block">{{ messageError }}</span>
         </div>
         <div class="mb-4">
           <label class="block text-white text-sm mb-1">Upload Your Resume</label>
-          <label for="resume-upload" class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition">
+          <label for="resume-upload"
+            class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition">
             <Icon name="mdi:upload" class="text-white text-2xl mb-1" />
             <span class="text-white font-ninetea">Upload Your Resume</span>
-            <input id="resume-upload" type="file" accept=".pdf,.doc,.docx,.png,.jpeg,.jpg" class="hidden" @change="onFileChange" />
+            <input id="resume-upload" type="file" accept=".pdf,.doc,.docx,.png,.jpeg,.jpg" class="hidden"
+              @change="onFileChange" />
             <span v-if="resumeName" class="block text-xs text-[#BB83FF] mt-2">{{ resumeName }}</span>
           </label>
           <span v-if="resumeError" class="text-xs text-red-500 mt-1 block">{{ resumeError }}</span>
           <div class="text-xs text-[#888] px-1 pt-1">Max: 10MB ( Type : pdf, doc, png, jpeg, docx )</div>
         </div>
         <div class="text-xs text-[#888] mb-4">
-          The information you submit is processed in accordance with our <a href="#" class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from TechBank.
+          The information you submit is processed in accordance with our <a href="#"
+            class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
+          TechBank.
         </div>
-        <button type="submit" class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit">
+        <button type="submit"
+          class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit">
           Submit
           <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
         </button>
@@ -184,73 +204,73 @@ import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
 
 const jobs = [
-    {
-        title: "Blockchain Lead",
-        openings: "1",
-        experience: '5',
-        location: "Kochi",
-        time: "Full Time",
-        isNew: true,
-        description: "We're on the hunt for a Blockchain Lead Developer who's ready to push boundaries! 🔗🚀 If you're all about building cutting-edge decentralized solutions and want to be part of an innovative, fun team, we'd love to hear from you. Hit us up!",
-        responsibilities: [
-        ],
-        requirements: [
-            "Experience : 5+ years in Blockchain and Node.js development.",
-            "Required Skills : Web3, Solidity, Node.js, EVM-based chains.",
-            "Knowledge in : React / Vue, Golang.",
-            "Experience with DeFi projects - Uniswap Protocols."
-        ]
-    },
-    {
-        title: "Content Writer",
-        openings: "1",
-        experience: '3',
-        location: "Kochi",
-        time: "Full Time",
-        isNew: true,
-        description: "We're looking for a Content Writer who can craft engaging and high-quality content! ✍️✨ If you have a knack for research, creating compelling articles, scripts, and social media posts—and anchoring skills as a bonus—we want you on our team! 🚀 Hit us up!",
-        responsibilities: [
-        ],
-        requirements: [
-            "Write engaging and high-quality content.",
-            "Research and create compelling articles, scripts, and social media posts.",
-            "Knowledge of anchoring skills is an added advantage.",
-        ]
-        },
-        {
-            title: "Content Creator",
-            openings: "1",
-            experience: '3',
-            location: "Kochi",
-            time: "Full Time",
-            isNew: true,
-            description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
-            responsibilities: [
-            ],
-            requirements: [
-                "Plan, Script, Present high quality videos.",
-                "Confidently Present on camera.",
-                "Handle English & Malayalam Presentation Videos.",
-            ]
-        },
-        {
-            title: "Jr. Graphic Designer",
-            openings: "1",
-            experience: '0-2',
-            location: "Kochi",
-            time: "Full Time",
-            isNew: true,
-            description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
-            responsibilities: [
-            ],
-            requirements: [
-                "Proficiency in Adobe Photoshop, Illustrator, and basic knowledge of After Effects or Premiere Pro is a plus.",   
-                "Basic understanding of design principles, color theory, and typography.",
-                "Ability to take direction and work collaboratively in a fast-paced environment.",
-                "Strong attention to detail and creativity.",
-                "Portfolio showcasing previous work (even academic or freelance projects).",
-            ]
-        }
+  {
+    title: "Blockchain Lead",
+    openings: "1",
+    experience: '5',
+    location: "Kochi",
+    time: "Full Time",
+    isNew: true,
+    description: "We're on the hunt for a Blockchain Lead Developer who's ready to push boundaries! 🔗🚀 If you're all about building cutting-edge decentralized solutions and want to be part of an innovative, fun team, we'd love to hear from you. Hit us up!",
+    responsibilities: [
+    ],
+    requirements: [
+      "Experience : 5+ years in Blockchain and Node.js development.",
+      "Required Skills : Web3, Solidity, Node.js, EVM-based chains.",
+      "Knowledge in : React / Vue, Golang.",
+      "Experience with DeFi projects - Uniswap Protocols."
+    ]
+  },
+  {
+    title: "Content Writer",
+    openings: "1",
+    experience: '3',
+    location: "Kochi",
+    time: "Full Time",
+    isNew: true,
+    description: "We're looking for a Content Writer who can craft engaging and high-quality content! ✍️✨ If you have a knack for research, creating compelling articles, scripts, and social media posts—and anchoring skills as a bonus—we want you on our team! 🚀 Hit us up!",
+    responsibilities: [
+    ],
+    requirements: [
+      "Write engaging and high-quality content.",
+      "Research and create compelling articles, scripts, and social media posts.",
+      "Knowledge of anchoring skills is an added advantage.",
+    ]
+  },
+  {
+    title: "Content Creator",
+    openings: "1",
+    experience: '3',
+    location: "Kochi",
+    time: "Full Time",
+    isNew: true,
+    description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
+    responsibilities: [
+    ],
+    requirements: [
+      "Plan, Script, Present high quality videos.",
+      "Confidently Present on camera.",
+      "Handle English & Malayalam Presentation Videos.",
+    ]
+  },
+  {
+    title: "Jr. Graphic Designer",
+    openings: "1",
+    experience: '0-2',
+    location: "Kochi",
+    time: "Full Time",
+    isNew: true,
+    description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
+    responsibilities: [
+    ],
+    requirements: [
+      "Proficiency in Adobe Photoshop, Illustrator, and basic knowledge of After Effects or Premiere Pro is a plus.",
+      "Basic understanding of design principles, color theory, and typography.",
+      "Ability to take direction and work collaboratively in a fast-paced environment.",
+      "Strong attention to detail and creativity.",
+      "Portfolio showcasing previous work (even academic or freelance projects).",
+    ]
+  }
 ]
 
 const route = useRoute()
@@ -265,6 +285,7 @@ const schema = yup.object({
   lastName: yup.string().required('Last name is required').matches(/^[A-Za-z\s]+$/, 'Only alphabets allowed'),
   email: yup.string().required('Email is required').email('Please enter a valid email'),
   countryCode: yup.string().required('Country code is required'),
+  jobTitle: yup.string().required(), // Added jobTitle
   phone: yup.string().required('Phone number is required').matches(/^\d{7,15}$/, 'Enter a valid phone number'),
   currentRole: yup.string(),
   experience: yup.string(),
@@ -284,6 +305,7 @@ const { handleSubmit, errors, resetForm } = useForm({
     firstName: '',
     lastName: '',
     email: '',
+    jobTitle: job.title, // Initialize with the current job title
     countryCode: '+91',
     phone: '',
     currentRole: '',
@@ -296,6 +318,7 @@ const { handleSubmit, errors, resetForm } = useForm({
 const { value: firstName, errorMessage: firstNameError, handleBlur: firstNameBlur } = useField('firstName')
 const { value: lastName, errorMessage: lastNameError, handleBlur: lastNameBlur } = useField('lastName')
 const { value: email, errorMessage: emailError, handleBlur: emailBlur } = useField('email')
+const { value: jobTitle } = useField('jobTitle'); // No error message or blur needed if it's not user-editable
 const { value: countryCode, errorMessage: countryCodeError, handleBlur: countryCodeBlur } = useField('countryCode')
 const { value: phone, errorMessage: phoneError, handleBlur: phoneBlur } = useField('phone')
 const { value: currentRole, errorMessage: currentRoleError, handleBlur: currentRoleBlur } = useField('currentRole')
@@ -325,4 +348,10 @@ const selectCountry = (country) => {
   countryCode.value = country.code
   isDropdownOpen.value = false
 }
+
+// Ensure jobTitle is set in the form values when the component mounts or job changes
+// vee-validate's initialValues should handle this, but this is an explicit way if needed.
+watchEffect(() => {
+  jobTitle.value = job.title;
+});
 </script>
