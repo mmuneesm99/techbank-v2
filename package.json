@@ -8,7 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "npm run generate && gh-pages -d dist"
+    "deploy": "npm run generate && gh-pages -d dist",
+    "start": "cross-env NODE_OPTIONS=--experimental-specifier-resolution=node node .output/server/index.mjs",
+    "start:prod": "cross-env NODE_ENV=production NODE_OPTIONS=--experimental-specifier-resolution=node node .output/server/index.mjs"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.11.4",
@@ -42,6 +44,7 @@
     "@iconify-json/pixelarticons": "^1.2.2",
     "@iconify-json/skill-icons": "^1.2.0",
     "@iconify-json/token-branded": "^1.2.17",
+    "cross-env": "^7.0.3",
     "gh-pages": "^6.3.0"
   }
 }

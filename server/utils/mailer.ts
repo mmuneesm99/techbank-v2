@@ -1,13 +1,15 @@
 import nodemailer from 'nodemailer'
+import { useRuntimeConfig } from '#imports'
 
 // Create reusable transporter object using SMTP transport
+const config = useRuntimeConfig()
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
+    host: config.smtpHost,
+    port: Number(config.smtpPort),
     secure: true, // use SSL/TLS
     auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: config.smtpUser,
+        pass: config.smtpPass,
     },
     tls: {
         // Do not fail on invalid certs
@@ -63,8 +65,8 @@ export const sendEmail = async (type: 'contact' | 'jobApplication', data: any) =
     try {
         const template = emailTemplates[type](data)
         const mailOptions = {
-            from: `"TechBank Website" <${process.env.SMTP_FROM}>`,
-            to: type === 'contact' ? process.env.CONTACT_EMAIL : process.env.CAREERS_EMAIL,
+            from: `"TechBank Website" <${config.smtpFrom}>`,
+            to: config.smtpTo,
             subject: template.subject,
             html: template.html,
             attachments: data.resume ? [
