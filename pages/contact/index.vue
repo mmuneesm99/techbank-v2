@@ -145,8 +145,22 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { useCookie } from 'nuxt/app'
 
-const form = ref({
+interface Country {
+    code: string
+    flag: string
+    name: string
+}
+
+interface FormData {
+    name: string
+    email: string
+    phone: string
+    message: string
+}
+
+const form = ref<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -157,9 +171,9 @@ const isSubmitting = ref(false)
 const error = ref('')
 const success = ref('')
 const isDropdownOpen = ref(false)
-const dropdownRef = ref(null)
+const dropdownRef = ref<HTMLElement | null>(null)
 
-const countries = [
+const countries: Country[] = [
     { code: '+91', flag: 'in', name: 'India' },
     { code: '+1', flag: 'us', name: 'United States' },
     { code: '+44', flag: 'gb', name: 'United Kingdom' },
@@ -167,9 +181,9 @@ const countries = [
     { code: '+86', flag: 'cn', name: 'China' }
 ]
 
-const selectedCountry = ref(countries[0])
+const selectedCountry = ref<Country>(countries[0])
 
-const selectCountry = (country) => {
+const selectCountry = (country: Country): void => {
     selectedCountry.value = country
     isDropdownOpen.value = false
 }
@@ -178,23 +192,95 @@ onClickOutside(dropdownRef, () => {
     isDropdownOpen.value = false
 })
 
-const handleSubmit = async () => {
+const validateForm = (): boolean => {
+    let isValid = true
+    error.value = ''
+
+    if (!form.value.name.trim()) {
+        error.value = 'Name is required'
+        isValid = false
+    }
+
+    if (!form.value.email.trim()) {
+        error.value = 'Email is required'
+        isValid = false
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) {
+        error.value = 'Please enter a valid email address'
+        isValid = false
+    }
+
+    if (!form.value.phone.trim()) {
+        error.value = 'Phone number is required'
+        isValid = false
+    } else if (!/^\d{7,15}$/.test(form.value.phone)) {
+        error.value = 'Please enter a valid phone number'
+        isValid = false
+    }
+
+    if (!form.value.message.trim()) {
+        error.value = 'Message is required'
+        isValid = false
+    }
+
+    return isValid
+}
+
+const resetForm = (): void => {
+    form.value = {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    }
+    error.value = ''
+    success.value = ''
+}
+
+const handleSubmit = async (): Promise<void> => {
+    if (!validateForm()) return
+
     isSubmitting.value = true
     error.value = ''
     success.value = ''
 
     try {
-        // Here you would typically send the form data to your backend
-        await new Promise(resolve => setTimeout(resolve, 1000)) // Simulated API call
-        success.value = 'Message sent successfully!'
-        form.value = {
-            name: '',
-            email: '',
-            phone: '',
-            message: ''
+        // First get CSRF token
+        const csrfResponse = await fetch('/api/csrf', {
+            method: 'GET',
+            credentials: 'same-origin'
+        })
+        
+        if (!csrfResponse.ok) {
+            throw new Error('Failed to get CSRF token')
         }
-    } catch (err) {
-        error.value = 'Failed to send message. Please try again.'
+
+        const { token } = await csrfResponse.json()
+
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': token
+            },
+            body: JSON.stringify({
+                name: form.value.name,
+                email: form.value.email,
+                phone: `${selectedCountry.value.code}${form.value.phone}`,
+                message: form.value.message
+            }),
+            credentials: 'same-origin'
+        })
+
+        if (!response.ok) {
+            const errorData = await response.json()
+            throw new Error(errorData.message || 'Failed to send message')
+        }
+
+        const data = await response.json()
+        success.value = data.message || 'Message sent successfully! We will get back to you soon.'
+        resetForm()
+    } catch (err: any) {
+        error.value = err.message || 'Failed to send message. Please try again.'
     } finally {
         isSubmitting.value = false
     }
