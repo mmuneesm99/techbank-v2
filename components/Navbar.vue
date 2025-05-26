@@ -1,6 +1,9 @@
 <template>
-  <nav class="bg-gradient-to-b from-black to-transparent fixed font-ninetea w-full text-white z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 lg:px-8">
+  <nav 
+    class="fixed font-ninetea w-full text-white z-50 transition-all duration-300"
+    :class="{ 'backdrop-blur-sm': isScrolled }"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo and Brand -->
         <div class="flex items-center min-w-[180px]">
@@ -139,6 +142,7 @@ import { gsap } from 'gsap'
 const isMobileMenuOpen = ref(false)
 const mobileMenu = ref<HTMLElement | null>(null)
 const mobileNavLinks = ref<HTMLElement | null>(null)
+const isScrolled = ref(false)
 
 // Initialize GSAP animation
 onMounted(() => {
@@ -157,6 +161,10 @@ onMounted(() => {
       clipPath: 'circle(0% at top right)'
     })
   }
+
+  window.addEventListener('scroll', () => {
+    isScrolled.value = window.scrollY > 30
+  })
 })
 
 // Watch for mobile menu state changes
@@ -338,14 +346,14 @@ onMounted(() => {
         }, 0.2)
 
         // Clean up ripple after animation
-        tl.call(() => {
+        tl.add(() => {
           ripple.remove()
-        }, null, null, 0.6)
+        }, 0.6)
 
         // Close menu after click animation
-        tl.call(() => {
+        tl.add(() => {
           isMobileMenuOpen.value = false
-        }, null, null, 0.4)
+        }, 0.4)
       })
     })
   }

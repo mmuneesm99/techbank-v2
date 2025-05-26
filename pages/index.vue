@@ -133,18 +133,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Technologies Section -->
-    <div class="max-w-7xl mx-auto relative px-4 sm:px-6 py-16 md:py-24 lg:px-8">
-        <div class="text-center">
-            <h2 ref="technologiesRef" data-final-text="Technologies"
-                class="text-2xl sm:text-3xl md:text-[32px] text-[#FFFFFF] scramble-header mx-auto mb-4 md:mb-6 font-nyx tracking-wider leading-[1.2] md:leading-[102px]">
-                Technologies
-            </h2>
-        </div>
-        <TechnologySwiper />
-    </div>
-
     <!-- Brands Section -->
     <div class="relative overflow-hidden">
         <div class="bg-[#010101]">
@@ -189,6 +177,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Technologies Section -->
+    <div class="max-w-7xl mx-auto relative px-4 sm:px-6 py-16 md:py-24 lg:px-8">
+        <div class="text-center">
+            <h2 ref="technologiesRef" data-final-text="Technologies"
+                class="text-2xl sm:text-3xl md:text-[32px] text-[#FFFFFF] scramble-header mx-auto mb-4 md:mb-6 font-nyx tracking-wider leading-[1.2] md:leading-[102px]">
+                Technologies
+            </h2>
+        </div>
+        <TechnologySwiper />
     </div>
 </template>
 
@@ -333,7 +331,7 @@ const handleMouseMove = (e: MouseEvent): void => {
     gsap.to(comp, {
         x: x * 1,
         y: y * 1,
-        duration: 8,
+        duration: 10,
         ease: 'power2.out'
     })
 }
@@ -345,7 +343,7 @@ const handleMouseLeave = (): void => {
     gsap.to(comp, {
         x: 0,
         y: 0,
-        duration: 8,
+        duration: 10,
         ease: 'power2.out'
     })
 }

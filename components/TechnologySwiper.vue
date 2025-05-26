@@ -27,13 +27,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Autoplay } from 'swiper/modules'
+import type { SwiperContainer } from 'swiper/element'
 
-const containerTop = ref(null)
-const containerBottom = ref(null)
+const containerTop = ref<SwiperContainer | null>(null)
+const containerBottom = ref<SwiperContainer | null>(null)
 
 const swiperOptions = {
   modules: [Autoplay],
-  slidesPerView: 'auto',
+  slidesPerView: 'auto' as const,
   spaceBetween: 40,
   loop: true,
   autoplay: {
@@ -62,30 +63,32 @@ const topTechnologies = [
     { icon: 'devicon:vite-wordmark', color: '#646CFF' },
     { icon: 'devicon:webpack-wordmark', color: '#8DD6F9' },
     { icon: 'devicon:vscode-wordmark', color: '#007ACC' },
-    { icon: 'devicon:laravel-wordmark', color: '#FF2D20' },
-    { icon: 'devicon:vuejs-wordmark', color: '#41B883' },
-    { icon: 'devicon:nuxtjs-wordmark', color: '#00DC82' },
-    { icon: 'devicon:nodejs-wordmark', color: '#339933' },
-    { icon: 'devicon:tailwindcss-wordmark', color: '#06B6D4' },
-    { icon: 'devicon:vite-wordmark', color: '#646CFF' },
+    { icon: 'devicon:mongodb-wordmark', color: '#47A248' },
+  { icon: 'devicon:mysql-wordmark', color: '#4479A1' },
+  // { icon: 'skill-icons:aws-light', color: '#FF9900' },
+  { icon: 'token-branded:solana', color: '#00FFA3' },
+  { icon: 'token-branded:tron', color: '#FF060A' },
+  // { icon: 'token-branded:metamask', color: '#E2761B' },
+
     
 ]
 
 const bottomTechnologies = [
   { icon: 'devicon:mongodb-wordmark', color: '#47A248' },
-  { icon: 'icon-park-twotone:blockchain', color: '#00DC82' },
   { icon: 'devicon:mysql-wordmark', color: '#4479A1' },
-  { icon: 'skill-icons:aws-light', color: '#FF9900' },
+  // { icon: 'skill-icons:aws-light', color: '#FF9900' },
   { icon: 'token-branded:solana', color: '#00FFA3' },
   { icon: 'token-branded:tron', color: '#FF060A' },
-  { icon: 'token-branded:metamask', color: '#E2761B' },
-  { icon: 'devicon:mongodb-wordmark', color: '#47A248' },
-  { icon: 'icon-park-twotone:blockchain', color: '#00DC82' },
-  { icon: 'devicon:mysql-wordmark', color: '#4479A1' },
-  { icon: 'skill-icons:aws-light', color: '#FF9900' },
-  { icon: 'token-branded:solana', color: '#00FFA3' },
-  { icon: 'token-branded:tron', color: '#FF060A' },
-  { icon: 'token-branded:metamask', color: '#E2761B' },
+  // { icon: 'token-branded:metamask', color: '#E2761B' },
+  { icon: 'devicon:laravel-wordmark', color: '#FF2D20' },
+    { icon: 'devicon:vuejs-wordmark', color: '#41B883' },
+    { icon: 'devicon:nuxtjs-wordmark', color: '#00DC82' },
+    { icon: 'devicon:nodejs-wordmark', color: '#339933' },
+    { icon: 'devicon:tailwindcss-wordmark', color: '#06B6D4' },
+    { icon: 'devicon:vite-wordmark', color: '#646CFF' },
+    { icon: 'devicon:webpack-wordmark', color: '#8DD6F9' },
+    { icon: 'devicon:vscode-wordmark', color: '#007ACC' },
+
 ]
 
 onMounted(() => {
@@ -103,19 +106,26 @@ onMounted(() => {
   position: relative;
   transition: transform 0.3s ease;
   width: auto !important;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
 }
 
 .tech-icon:hover {
-  transform: scale(1.1);
+  opacity: 1;
+  filter:  invert(0);
 }
 
 .tech-icon :deep(svg) {
   filter: brightness(0) invert(1);
-  transition: filter 0.3s ease;
+  transition: all 0.3s ease;
+  color: white !important;
+  fill: white !important;
 }
 
 .tech-icon:hover :deep(svg) {
   filter: none;
+  color: inherit !important;
+  fill: inherit !important;
 }
 
 :deep(.swiper) {
