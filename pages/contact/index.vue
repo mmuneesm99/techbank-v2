@@ -119,7 +119,7 @@
                             required
                         ></textarea>
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-start">
                         <NuxtTurnstile v-model="turnstileToken" />
                     </div>
                     <div>

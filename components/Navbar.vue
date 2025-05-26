@@ -92,7 +92,7 @@
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path === '/' ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
-            <Icon name="solar:home-2-bold-duotone" class="text-xl" />
+            <Icon name="pixelarticons:home" class="text-xl text-[#EEE0FF]" />
             Home
           </NuxtLink>
           <NuxtLink 
@@ -100,7 +100,7 @@
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path.startsWith('/products') ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
-            <Icon name="solar:heart-bold-duotone" class="text-xl" />
+            <Icon name="pixelarticons:heart" class="text-xl text-[#FFC2C2]" />
             Products
           </NuxtLink>
           <NuxtLink 
@@ -108,7 +108,7 @@
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path.startsWith('/team') ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
-            <Icon name="solar:users-group-rounded-bold-duotone" class="text-xl" />
+            <Icon name="pixelarticons:lightbulb-2" class="text-xl text-[#FFFBD2]" />
             Teams
           </NuxtLink>
           <NuxtLink 
@@ -116,7 +116,7 @@
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path.startsWith('/careers') ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
-            <Icon name="solar:user-plus-bold-duotone" class="text-xl" />
+            <Icon name="pixelarticons:user-plus" class="text-xl text-[#CEFFDE]" />
             Career
           </NuxtLink>
           <NuxtLink
@@ -124,7 +124,7 @@
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path.startsWith('/contact') ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
-            <Icon name="solar:letter-bold-duotone" class="text-xl" />
+            <Icon name="pixelarticons:mail-delete" class="text-xl" />
             Contact Us
           </NuxtLink>
         </nav>
@@ -217,37 +217,6 @@ watch(isMobileMenuOpen, (newValue) => {
           ease: 'power2.out'
         }
       )
-
-      // Add text reveal animation for each link
-      Array.from(links).forEach((link, index) => {
-        const text = link.textContent
-        if (text) {
-          link.textContent = ''
-          const chars = text.split('')
-          const textContainer = document.createElement('span')
-          textContainer.style.display = 'inline-block'
-          link.appendChild(textContainer)
-          
-          chars.forEach((char, i) => {
-            const span = document.createElement('span')
-            span.textContent = char
-            span.style.display = 'inline-block'
-            span.style.opacity = '0'
-            span.style.transform = 'translateY(10px)'
-            span.style.margin = '0'
-            span.style.padding = '0'
-            textContainer.appendChild(span)
-            
-            gsap.to(span, {
-              opacity: 1,
-              y: 0,
-              duration: 0.2,
-              delay: 0.1 * (i + index * 2),
-              ease: 'power2.out'
-            })
-          })
-        }
-      })
     }
   } else {
     // Close animation with more dramatic effect

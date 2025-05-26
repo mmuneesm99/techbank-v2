@@ -13,7 +13,7 @@
                 class="absolute bottom-0 w-full h-full flex flex-col items-center justify-end rounded-lg py-4 md:py-10">
                 <div class="absolute w-full h-full flex items-center justify-center">
                     <img ref="compRef" src="/images/comp.gif" alt="TechBank Digital Finance Platform Animation"
-                        class="w-[120px] sm:w-[180px] md:w-[300px] h-auto object-cover rotate-[20deg] transition-all duration-300" />
+                        class="w-[200px] sm:w-[180px] md:w-[300px] h-auto object-cover rotate-[20deg] transition-all duration-300" />
                 </div>
                 <h3 ref="headerRef"
                     class="text-2xl sm:text-3xl md:text-[94px] text-[#000000] font-bold text-center mb-1 md:mb-4 relative font-nyx tracking-wider">
@@ -30,7 +30,7 @@
                         Businesses, Enabling Growth
                         TechBank's Products for Success</span>
                     <nuxt-link to="/products"
-                        class="bg-button-gradient font-ninetea text-white pl-3 md:pl-6 pr-2 py-1 md:py-2 text-xs md:text-base whitespace-nowrap flex items-center gap-1 md:gap-2 rounded-full hover:bg-gray-700 transition-all duration-300 active:scale-95 touch-manipulation">
+                        class="bg-button-gradient font-ninetea text-white pl-3 md:pl-6 pr-2 py-2 md:py-2 text-xs md:text-base whitespace-nowrap flex items-center gap-1 md:gap-2 rounded-full hover:bg-gray-700 transition-all duration-300 active:scale-95 touch-manipulation">
                         View Products
                         <span class="bg-white h-5 w-5 md:h-8 md:w-8 flex items-center justify-center ml-0 rounded-full">
                             <Icon name="mynaui:arrow-long-up-right"

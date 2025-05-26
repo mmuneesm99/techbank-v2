@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="flex justify-between flex-col md:divide-y-0 divide-y divide-[#FBFDFF26] md:flex-row items-center text-white">
-                <div class=" flex items-center gap-5">
+                <div class=" flex items-center justify-center md:justify-start gap-5 w-full">
                     <a href="https://linkedin.com/company/techbank" target="_blank" aria-label="Visit our LinkedIn page">
                         <Icon name="ph:linkedin-logo" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
@@ -54,7 +54,7 @@
                 <div class="hidden text-center md:block w-full flex justify-center">
                     <p >&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
                 </div>
-                <div class="flex items-center gap-5 -mt-5 md:mt-0 py-3 md:py-0">
+                <div class="flex items-center gap-5 md:justify-end justify-center w-full -mt-5 md:mt-0 py-3 md:py-0">
                     <nuxt-link to="/privacy-policy" class="text-white">Privacy Policy</nuxt-link>
                     <nuxt-link to="/terms-and-conditions" class="text-white">Terms & Conditions</nuxt-link>
                 </div>

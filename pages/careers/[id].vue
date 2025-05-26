@@ -186,7 +186,7 @@
               class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
             TechBank.
           </div>
-          <div class="flex justify-center mb-4">
+          <div class="flex justify-start mb-4">
             <NuxtTurnstile v-model="turnstileToken" />
           </div>
           <button type="submit"
