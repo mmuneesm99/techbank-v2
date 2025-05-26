@@ -2,10 +2,10 @@
     <!-- Hero Section -->
     <div ref="heroRef" class="max-w-7xl mx-auto px-4 pb-8 md:pb-16 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden">
-            <nuxt-img src="/images/hero-bg.svg" alt="TechBank Hero Background - Modern Digital Finance Platform"
+            <img src="/images/hero-bg.svg" alt="TechBank Hero Background - Modern Digital Finance Platform"
                 width="100%" height="100%" class="hidden md:block w-full h-auto object-cover rounded-lg shadow-lg"
                 loading="eager" />
-            <nuxt-img src="/images/mob-hero-bg.webp" alt="TechBank Mobile Hero Background - Digital Finance Solutions"
+            <img src="/images/mob-hero-bg.webp" alt="TechBank Mobile Hero Background - Digital Finance Solutions"
                 width="100%" height="100%" class="block md:hidden w-full h-auto object-cover rounded-lg shadow-lg"
                 loading="eager" />
 
@@ -84,7 +84,7 @@
     <div class="relative">
         <div class="bg-[#010101]">
             <div class="absolute inset-0 w-full h-full flex items-center justify-center bottom-0">
-                <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Products Section Background Pattern"
+                <img src="/images/product-bg-pattern.webp" alt="TechBank Products Section Background Pattern"
                     width="100%" height="100%" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy" />
             </div>
         </div>
@@ -137,7 +137,7 @@
     <div class="relative overflow-hidden">
         <div class="bg-[#010101]">
             <div class="absolute inset-0 w-full h-full flex items-center justify-center bottom-0">
-                <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Brands Section Background Pattern"
+                <img src="/images/product-bg-pattern.webp" alt="TechBank Brands Section Background Pattern"
                     width="100%" height="100%" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy" />
             </div>
         </div>

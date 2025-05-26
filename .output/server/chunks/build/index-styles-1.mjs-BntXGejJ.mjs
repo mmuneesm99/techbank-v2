@@ -1,2 +1,0 @@
-const a=".animate-fade-in[data-v-714d63dd]{animation:fadeIn-714d63dd .8s ease-out}.animate-fade-up[data-v-714d63dd]{animation:fadeUp-714d63dd .8s ease-out forwards;opacity:0}@keyframes fadeIn-714d63dd{0%{opacity:0}to{opacity:1}}@keyframes fadeUp-714d63dd{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}";export{a as i};
-//# sourceMappingURL=index-styles-1.mjs-BntXGejJ.mjs.map

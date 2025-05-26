@@ -39,7 +39,7 @@
             <div
                 class="bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0 hover:shadow-[#BB83FF]/20 transition-all duration-300">
                 <div class="md:absolute md:-left-10">
-                    <nuxt-img src="/images/team-footer-badge.webp"
+                    <img src="/images/team-footer-badge.webp"
                         class="md:w-[130px]  -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" />
                 </div>
                 <div class="flex flex-col gap-2 md:pl-20">

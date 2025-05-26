@@ -16,7 +16,7 @@
                   <Icon :name="social.icon" class="text-white text-[100px] w-6 mx-auto" />
                 </a>
               </div>
-              <nuxt-img :src="brand.image" :alt="brand.name" width="100%" height="100%"
+              <img :src="brand.image" :alt="brand.name" width="100%" height="100%"
                 class="w-full h-auto object-cover rounded-lg shadow-lg" />
             </div>
           </swiper-slide>

@@ -8,7 +8,7 @@
         <!-- Logo and Brand -->
         <div class="flex items-center min-w-[180px]">
           <NuxtLink to="/" class="flex items-center">
-            <nuxt-img 
+            <img 
               src="/images/logo.svg" 
               alt="TechBank Logo" 
               width="40" 

@@ -10,10 +10,10 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-5">
             <div class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg" v-for="item in 9" :key="item">
-                <nuxt-img src="/images/blog-bg-pattern.svg" alt="TechBank Logo" width="100%" height="100%"
+                <img src="/images/blog-bg-pattern.svg" alt="TechBank Logo" width="100%" height="100%"
                     class="w-full h-auto object-cover rounded-[30px] shadow-lg" />
                 <div class="absolute h-full inset-0 p-1 z-10 text-white">
-                    <nuxt-img src="/images/blog-sample.webp" alt="TechBank Logo" width="100%" height="100%"
+                    <img src="/images/blog-sample.webp" alt="TechBank Logo" width="100%" height="100%"
                         class="w-full object-cover rounded-lg" />
                     <div class="flex items-center justify-between relative w-full py-10 px-3">
                         <div class="">

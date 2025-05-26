@@ -15,7 +15,7 @@
     />
     
     <!-- Main Image -->
-    <nuxt-img
+    <img
       :src="src"
       :alt="alt"
       :width="width"

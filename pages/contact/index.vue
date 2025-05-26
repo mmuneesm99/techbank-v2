@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <!-- Left Section with Video -->
             <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex h-fit flex-col items-center">
-                <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
+                <img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
                     class="w-full h-full absolute object-cover" />
                 <div class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8] to-transparent">
                 </div>
