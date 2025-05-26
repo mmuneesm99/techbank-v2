@@ -85,36 +85,37 @@
           <p class="text-sm text-gray-300 font-ninetea">Applying for:</p>
           <p class="text-lg text-white font-ninetea font-semibold tracking-wide">{{ job.title }}</p>
         </div>
-        <form @submit.prevent="handleSubmit" class="w-full">
+        <Form @submit="handleSubmit" :validation-schema="applicationSchema" class="w-full" v-slot="{ errors: validationErrors, meta }">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="block text-white text-sm mb-1">First Name *</label>
-              <input type="text" v-model="form.firstName" placeholder="Enter Your First Name"
+              <Field name="firstName" type="text" v-model="form.firstName" placeholder="Enter Your First Name"
                 class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': errors.firstName }" />
-              <span v-if="errors.firstName" class="text-xs text-red-500 mt-1 block">{{ errors.firstName }}</span>
+                :class="{ 'border-red-500': validationErrors.firstName }" />
+              <ErrorMessage name="firstName" class="text-xs text-red-500 mt-1 block" />
             </div>
             <div>
               <label class="block text-white text-sm mb-1">Last Name *</label>
-              <input type="text" v-model="form.lastName" placeholder="Enter Your Last Name"
+              <Field name="lastName" type="text" v-model="form.lastName" placeholder="Enter Your Last Name"
                 class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': errors.lastName }" />
-              <span v-if="errors.lastName" class="text-xs text-red-500 mt-1 block">{{ errors.lastName }}</span>
+                :class="{ 'border-red-500': validationErrors.lastName }" />
+              <ErrorMessage name="lastName" class="text-xs text-red-500 mt-1 block" />
             </div>
             <div>
               <label class="block text-white text-sm mb-1">E Mail *</label>
-              <input type="email" v-model="form.email" placeholder="Enter Your Email"
+              <Field name="email" type="email" v-model="form.email" placeholder="Enter Your Email"
                 class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': errors.email }" />
-              <span v-if="errors.email" class="text-xs text-red-500 mt-1 block">{{ errors.email }}</span>
+                :class="{ 'border-red-500': validationErrors.email }" />
+              <ErrorMessage name="email" class="text-xs text-red-500 mt-1 block" />
             </div>
             <div>
               <label class="block text-white text-sm mb-1">Phone Number *</label>
               <div class="flex gap-2 items-center">
                 <div class="relative" ref="dropdownRef">
-                  <button type="button" @click="isDropdownOpen = !isDropdownOpen"
+                  <Field name="countryCode" v-model="form.countryCode" v-slot="{ field, errors: countryCodeErrors }">
+                    <button type="button" @click="isDropdownOpen = !isDropdownOpen"
                     class="px-3 py-2 bg-[#1A1A1A] border border-[#474747] rounded text-white min-w-[90px] flex items-center justify-between focus:outline-none focus:border-[#BB83FF]"
-                    :class="{ 'border-red-500': errors.countryCode }">
+                    :class="{ 'border-red-500': countryCodeErrors.length > 0 || validationErrors.countryCode }">
                     <div class="flex items-center gap-2">
                       <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
                       <span>{{ selectedCountry.code }}</span>
@@ -122,13 +123,14 @@
                     <Icon name="heroicons:chevron-down" class="w-4 h-4 transition-transform duration-200"
                       :class="{ 'rotate-180': isDropdownOpen }" />
                   </button>
+                  </Field>
                   <Transition enter-active-class="transition duration-100 ease-out"
                     enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                     leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                     leave-to-class="transform scale-95 opacity-0">
                     <div v-if="isDropdownOpen"
                       class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden">
-                      <div class="py-1 max-h-60 overflow-auto">
+                      <div class="py-1 max-h-48 overflow-auto custom-scrollbar">
                         <button v-for="country in countries" :key="country.code" @mousedown="selectCountry(country)"
                           class="w-full px-4 py-2 text-left text-white hover:bg-[#3B2A5A] flex items-center gap-2 transition-colors duration-150"
                           :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }">
@@ -139,46 +141,55 @@
                     </div>
                   </Transition>
                 </div>
-                <input type="tel" v-model="form.phone" placeholder="Enter Your Phone Number"
+                <Field name="phone" type="tel" v-model="form.phone" placeholder="Enter Your Phone Number"
                   class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                  :class="{ 'border-red-500': errors.phone }" />
+                  :class="{ 'border-red-500': validationErrors.phone }" />
               </div>
-              <span v-if="errors.countryCode" class="text-xs text-red-500 mt-1 block">{{ errors.countryCode }}</span>
-              <span v-if="errors.phone" class="text-xs text-red-500 mt-1 block">{{ errors.phone }}</span>
+              <ErrorMessage name="countryCode" class="text-xs text-red-500 mt-1 block" />
+              <ErrorMessage name="phone" class="text-xs text-red-500 mt-1 block" />
             </div>
             <div>
               <label class="block text-white text-sm mb-1">Current Role</label>
-              <input type="text" v-model="form.currentRole" placeholder="Enter Your Current Role"
+              <Field name="currentRole" type="text" v-model="form.currentRole" placeholder="Enter Your Current Role"
                 class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': errors.currentRole }" />
-              <span v-if="errors.currentRole" class="text-xs text-red-500 mt-1 block">{{ errors.currentRole }}</span>
+                :class="{ 'border-red-500': validationErrors.currentRole }" />
+              <ErrorMessage name="currentRole" class="text-xs text-red-500 mt-1 block" />
             </div>
             <div>
               <label class="block text-white text-sm mb-1">Years of Experience</label>
-              <input type="text" v-model="form.experience" placeholder="Enter Years of Experience"
+              <Field name="experience" type="text" v-model="form.experience" placeholder="Enter Years of Experience"
                 class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': errors.experience }" />
-              <span v-if="errors.experience" class="text-xs text-red-500 mt-1 block">{{ errors.experience }}</span>
+                :class="{ 'border-red-500': validationErrors.experience }" />
+              <ErrorMessage name="experience" class="text-xs text-red-500 mt-1 block" />
             </div>
           </div>
           <div class="mb-4">
             <label class="block text-white text-sm mb-1">Additional Information's</label>
-            <textarea rows="3" v-model="form.message" placeholder="Enter Your Message"
+            <Field as="textarea" name="message" rows="3" v-model="form.message" placeholder="Enter Your Message"
               class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-              :class="{ 'border-red-500': errors.message }"></textarea>
-            <span v-if="errors.message" class="text-xs text-red-500 mt-1 block">{{ errors.message }}</span>
+              :class="{ 'border-red-500': validationErrors.message }" />
+            <ErrorMessage name="message" class="text-xs text-red-500 mt-1 block" />
           </div>
           <div class="mb-4">
             <label class="block text-white text-sm mb-1">Upload Your Resume</label>
-            <label for="resume-upload"
-              class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition">
-              <Icon name="mdi:upload" class="text-white text-2xl mb-1" />
-              <span class="text-white font-ninetea">Upload Your Resume</span>
-              <input id="resume-upload" type="file" accept=".pdf" class="hidden"
-                @change="handleFileUpload" />
-              <span v-if="resumeName" class="block text-xs text-[#BB83FF] mt-2">{{ resumeName }}</span>
-            </label>
-            <span v-if="errors.resume" class="text-xs text-red-500 mt-1 block">{{ errors.resume }}</span>
+            <Field name="resume" v-model="form.resume" v-slot="{ field, handleChange, handleBlur }">
+              <label for="resume-upload"
+                class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition"
+                :class="{ 'border-red-500': validationErrors.resume }">
+                <Icon name="mdi:upload" class="text-white text-2xl mb-1" />
+                <span class="text-white font-ninetea">Upload Your Resume</span>
+                <input 
+                  id="resume-upload" 
+                  type="file" 
+                  accept=".pdf" 
+                  class="hidden"
+                  @change="e => { handleChange(e); handleFileUpload(e); }"
+                  @blur="handleBlur"
+                />
+                <span v-if="resumeName" class="block text-xs text-[#BB83FF] mt-2">{{ resumeName }}</span>
+              </label>
+            </Field>
+            <ErrorMessage name="resume" class="text-xs text-red-500 mt-1 block" />
             <div class="text-xs text-[#888] px-1 pt-1">Max: 10MB ( PDF only )</div>
           </div>
           <div class="text-xs text-[#888] mb-4">
@@ -191,7 +202,7 @@
           </div>
           <button type="submit"
             class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit disabled:opacity-50 disabled:cursor-not-allowed"
-            :disabled="isSubmitting || !turnstileToken">
+            :disabled="isSubmitting || !turnstileToken || !meta.valid">
             <template v-if="isSubmitting">
               <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -204,15 +215,21 @@
               <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
             </template>
           </button>
-        </form>
+          <div v-if="submissionStatus" class="mt-4 text-center text-sm" 
+               :class="submissionStatus.type === 'success' ? 'text-green-400' : 'text-red-400'">
+            {{ submissionStatus.message }}
+          </div>
+        </Form>
       </div>
     </DrawerModal>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import { ref, computed, reactive } from 'vue'
+import { useRoute } from 'vue-router';
+import { ref, computed, reactive, watch } from 'vue';
+import { Form, Field, ErrorMessage, useForm } from 'vee-validate';
+import * as yup from 'yup';
 import DrawerModal from '~/components/DrawerModal.vue'
 
 const jobs = [
@@ -291,6 +308,7 @@ const resumeName = ref('')
 const isSubmitting = ref(false)
 const submissionStatus = ref(null)
 const turnstileToken = ref('')
+const { resetForm: veeResetForm, setFieldValue, setFieldError, values: veeValues } = useForm();
 
 const form = reactive({
   firstName: '',
@@ -302,18 +320,6 @@ const form = reactive({
   experience: '',
   message: '',
   resume: null
-})
-
-const errors = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  countryCode: '',
-  currentRole: '',
-  experience: '',
-  message: '',
-  resume: ''
 })
 
 const countries = [
@@ -329,47 +335,74 @@ const selectedCountry = ref(countries[0])
 const selectCountry = (country) => {
   selectedCountry.value = country
   form.countryCode = country.code
+  setFieldValue('countryCode', country.code); // Update VeeValidate field
   isDropdownOpen.value = false
 }
+
+// Initialize countryCode in VeeValidate form state
+watch(() => selectedCountry.value, (newVal) => {
+  if (newVal) {
+    setFieldValue('countryCode', newVal.code);
+  }
+}, { immediate: true });
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const ALLOWED_FILE_TYPES = ['application/pdf'];
+
+const applicationSchema = yup.object({
+  firstName: yup.string()
+    .required('First name is required')
+    .matches(/^[a-zA-Z\s]*$/, 'First name can only contain letters and spaces')
+    .trim(),
+  lastName: yup.string()
+    .required('Last name is required')
+    .matches(/^[a-zA-Z\s]*$/, 'Last name can only contain letters and spaces')
+    .trim(),
+  email: yup.string().required('Email is required').email('Please enter a valid email').trim(),
+  countryCode: yup.string().required('Country code is required'),
+  phone: yup.string().required('Phone number is required').matches(/^\d{7,15}$/, 'Enter a valid phone number (7-15 digits)').trim(),
+  currentRole: yup.string().trim().optional(),
+  experience: yup.string().trim().optional(),
+  message: yup.string().trim().optional(),
+  resume: yup.mixed()
+    .required('Resume is required')
+    .test('fileSize', 'File size should not exceed 10MB', value => {
+      return value && value.size <= MAX_FILE_SIZE;
+    })
+    .test('fileType', 'Please upload a PDF file', value => {
+      return value && ALLOWED_FILE_TYPES.includes(value.type);
+    })
+});
 
 const handleFileUpload = (event) => {
   const input = event.target
   if (input.files && input.files[0]) {
     const file = input.files[0]
-    if (file.size > 10 * 1024 * 1024) {
-      errors.resume = 'File size should not exceed 10MB'
+    // Manual check for immediate feedback, Yup will also validate on submit
+    if (file.size > MAX_FILE_SIZE) {
+      setFieldError('resume', 'File size should not exceed 10MB');
+      resumeName.value = file.name + ' (Too large)';
+      form.resume = null; // Clear invalid file
       return
     }
-    if (file.type !== 'application/pdf') {
-      errors.resume = 'Please upload a PDF file'
+    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+      setFieldError('resume', 'Please upload a PDF file');
+      resumeName.value = file.name + ' (Invalid type)';
+      form.resume = null; // Clear invalid file
       return
     }
     form.resume = file
     resumeName.value = file.name
-    errors.resume = ''
+    setFieldValue('resume', file); // Update VeeValidate field
+    setFieldError('resume', undefined); // Clear error if previously set
   }
 }
 
-const validateForm = () => {
-  let isValid = true
-  errors.firstName = !form.firstName ? 'First name is required' : ''
-  errors.lastName = !form.lastName ? 'Last name is required' : ''
-  errors.email = !form.email ? 'Email is required' : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? 'Please enter a valid email' : ''
-  errors.phone = !form.phone ? 'Phone number is required' : !/^\d{7,15}$/.test(form.phone) ? 'Enter a valid phone number' : ''
-  errors.countryCode = !form.countryCode ? 'Country code is required' : ''
-  errors.resume = !form.resume ? 'Resume is required' : ''
-
-  if (errors.firstName || errors.lastName || errors.email || errors.phone || errors.countryCode || errors.resume) {
-    isValid = false
-  }
-
-  return isValid
-}
-
-const handleSubmit = async () => {
-  if (!validateForm()) return
+const handleSubmit = async (values) => {
+  // Validation is handled by VeeValidate before this function is called
   if (!turnstileToken.value) {
-    errors.resume = 'Please complete the Turnstile verification'
+    // This could be a general form error or a specific field error if you add a Turnstile field to your schema
+    submissionStatus.value = { type: 'error', message: 'Please complete the Turnstile verification.' };
     return
   }
 
@@ -391,16 +424,16 @@ const handleSubmit = async () => {
 
     const formData = new FormData()
     // Combine first and last name
-    formData.append('name', `${form.firstName} ${form.lastName}`)
-    formData.append('email', form.email)
+    formData.append('name', `${values.firstName} ${values.lastName}`)
+    formData.append('email', values.email)
     // Combine country code and phone
-    formData.append('phone', `${form.countryCode}${form.phone}`)
+    formData.append('phone', `${values.countryCode}${values.phone}`)
     formData.append('position', job.value.title)
-    formData.append('experience', form.experience)
-    formData.append('message', form.message)
+    formData.append('experience', values.experience || '') // Send empty string if optional and not filled
+    formData.append('message', values.message || '') // Send empty string if optional and not filled
     formData.append('turnstileToken', turnstileToken.value)
-    if (form.resume) {
-      formData.append('resume', form.resume)
+    if (values.resume) { // resume comes from `values` which is linked to form.resume via v-model/setFieldValue
+      formData.append('resume', values.resume)
     }
 
     const response = await fetch('/api/job-application', {
@@ -422,16 +455,16 @@ const handleSubmit = async () => {
       message: 'Application submitted successfully!'
     }
 
-    // Reset form
+    // Reset reactive form state
     Object.keys(form).forEach(key => {
       form[key] = key === 'countryCode' ? '+91' : ''
     })
     form.resume = null
     resumeName.value = ''
-    Object.keys(errors).forEach(key => {
-      errors[key] = ''
-    })
+    selectedCountry.value = countries[0]; // Reset country dropdown visual
     turnstileToken.value = '' // Reset Turnstile token
+    veeResetForm(); // Reset VeeValidate form state and errors
+    setFieldValue('countryCode', countries[0].code); // Ensure countryCode is reset in VeeValidate
   } catch (error) {
     submissionStatus.value = {
       type: 'error',
@@ -444,5 +477,31 @@ const handleSubmit = async () => {
 
 const job = computed(() => {
   return jobs.find(j => j.title.toLowerCase() === route.params.id.toString().toLowerCase()) || jobs[0]
+  // Consider a more robust "not found" handling:
+  // const foundJob = jobs.find(j => j.title.toLowerCase() === route.params.id.toString().toLowerCase());
+  // if (!foundJob) {
+  //   // Handle not found case, e.g., redirect or show error message
+  //   // For now, returning a dummy object or null might be better than jobs[0]
+  //   // console.error("Job not found:", route.params.id);
+  //   // return { title: "Job Not Found", description: "", requirements: [], responsibilities: [] }; 
+  // }
+  // return foundJob;
 })
+
 </script>
+
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #2a2a2a; /* Slightly different from contact page for distinction or keep same */
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4a3b7a; /* Slightly different or keep same */
+    border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #5a4b8a; /* Slightly different or keep same */
+}
+</style>

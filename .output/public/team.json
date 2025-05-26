@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "name": "Akhil Antony",
+    "designation": "CTO",
+    "photo": "./images/team/akilantony.webp"
+  },
+  {
+    "id": 2,
+    "name": "Suresh Kamal",
+    "designation": "IT Head (India)",
+    "photo": "./images/team/suresh.webp"
+  },
+  {
+    "id": 3,
+    "name": "Ajeesh K S",
+    "designation": "Lead Php Developer",
+    "photo": "./images/team/ajeesh.webp"
+  },
+  {
+    "id": 4,
+    "name": "Akhil Chandran",
+    "designation": "IOS Developer",
+    "photo": "./images/team/akhil.webp"
+  },
+  {
+    "id": 5,
+    "name": "Sarath Raj",
+    "designation": "Project Manager",
+    "photo": "./images/team/sarath.webp"
+  },
+  {
+    "id": 7,
+    "name": "Syamily K Raj",
+    "designation": "Human Resource",
+    "photo": "./images/team/syamily.webp"
+  },
+  {
+    "id": 8,
+    "name": "Muhammed Munees",
+    "designation": "UI Developer",
+    "photo": "./images/team/munees.webp"
+  },
+  {
+    "id": 9,
+    "name": "Fairooz P",
+    "designation": "Lead Android Developer",
+    "photo": "./images/team/fairooz.webp"
+  },
+  {
+    "id": 10,
+    "name": "Arjun K A",
+    "designation": "Android Developer",
+    "photo": "./images/team/arjun.webp"
+  },
+  {
+    "id": 11,
+    "name": "Prajoon P K",
+    "designation": "Digital Marketing Manager",
+    "photo": "./images/team/prajoon.webp"
+  },
+  {
+    "id": 12,
+    "name": "Akshai K",
+    "designation": "IOS Developer",
+    "photo": "./images/team/akshai.webp"
+  },
+  {
+    "id": 13,
+    "name": "Aaraamasree Sreekumar",
+    "designation": "Blockchain Developer",
+    "photo": "./images/team/aaram.webp"
+  },
+  {
+    "id": 25,
+    "name": "Vimal Pillai",
+    "designation": "Project Coordinator",
+    "photo": "./images/team/vimal.webp"
+  },
+  {
+    "id": 15,
+    "name": "Muhammed Sahad",
+    "designation": "UI/UX Designer",
+    "photo": "./images/team/sahad.webp"
+  },
+  {
+    "id": 16,
+    "name": "Abhinand M S",
+    "designation": "Product Designer",
+    "photo": "./images/team/abhinand.webp"
+  },
+  {
+    "id": 17,
+    "name": "Vivin Raju Joseph",
+    "designation": "Video Editor",
+    "photo": "./images/team/vivin.webp"
+  },
+  {
+    "id": 18,
+    "name": "Anija Mathew",
+    "designation": "QA Engineer",
+    "photo": "./images/team/anija.webp"
+  },
+  {
+    "id": 19,
+    "name": "Anand Siva",
+    "designation": "Creative Head",
+    "photo": "./images/team/anand.webp"
+  },
+  {
+    "id": 20,
+    "name": "Devadeth S Nair",
+    "designation": "Graphic Designer",
+    "photo": "./images/team/devadath.webp"
+  },
+  {
+    "id": 21,
+    "name": "Praveen Johny",
+    "designation": "Digital Marketing Manager",
+    "photo": "./images/team/praveen.webp"
+  },
+  {
+    "id": 22,
+    "name": "Deivanai Ayyappan",
+    "designation": "Blockchain Developer",
+    "photo": "./images/team/deivanai.webp"
+  },
+  {
+    "id": 23,
+    "name": "Sree Ezhil V R",
+    "designation": "Blockchain Developer",
+    "photo": "./images/team/ezhil.webp"
+  },
+  {
+    "id": 24,
+    "name": "Ravin Varghese",
+    "designation": "Videographer",
+    "photo": "./images/team/ravin.webp"
+  }
+] 

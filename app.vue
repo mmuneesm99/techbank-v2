@@ -18,23 +18,6 @@ const isInitialLoad = ref(true)
 watch(() => route.path, () => {
   isInitialLoad.value = false
 })
-
-useSchemaOrg([
-  defineOrganization({
-    name: 'TechBank',
-    url: 'https://techbank.com',
-    logo: 'https://techbank.com/logo.png',
-    sameAs: [
-      'https://twitter.com/techbank',
-      'https://linkedin.com/company/techbank'
-    ]
-  }),
-  defineWebSite({
-    name: 'TechBank',
-    url: 'https://techbank.com',
-    description: 'TechBank - Digital Banking Solutions'
-  })
-])
 </script>
 
 <style>

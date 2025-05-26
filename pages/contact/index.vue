@@ -27,28 +27,32 @@
             <div class="w-full md:p-8">
                 <p class="text-[#BB83FF] text-sm font-ninetea mb-2 tracking-widest">BUILD THE FUTURE WITH US</p>
                 <h2 class="text-3xl md:text-4xl font-nyx text-white mb-8 tracking-wide">CONTACT US</h2>
-                <form @submit.prevent="handleSubmit" class="space-y-6">
+                <Form @submit="handleSubmit" :validation-schema="schema" class="space-y-6" v-slot="{ errors: validationErrors }">
                     <div>
                         <label for="name" class="block text-sm font-ninetea text-white mb-2">Name<span class="text-[#BB83FF]">*</span></label>
-                        <input 
+                        <Field
+                            name="name"
                             type="text" 
                             id="name" 
                             v-model="form.name"
                             placeholder="Enter Your Name"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] placeholder-gray-400"
-                            required
+                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
+                            :class="validationErrors.name ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
                         />
+                        <ErrorMessage name="name" class="text-red-500 text-sm mt-1" />
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-ninetea text-white mb-2">Email<span class="text-[#BB83FF]">*</span></label>
-                        <input 
+                        <Field
+                            name="email"
                             type="email" 
                             id="email" 
                             v-model="form.email"
                             placeholder="Enter Email"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] placeholder-gray-400"
-                            required
+                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
+                            :class="validationErrors.email ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
                         />
+                        <ErrorMessage name="email" class="text-red-500 text-sm mt-1" />
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-ninetea text-white mb-2">Phone Number<span class="text-[#BB83FF]">*</span></label>
@@ -57,7 +61,7 @@
                                 <button 
                                     type="button" 
                                     @click="isDropdownOpen = !isDropdownOpen"
-                                    class="px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] min-w-[120px] flex items-center justify-between"
+                                    class="px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] min-w-[120px] flex items-center justify-between border border-transparent"
                                 >
                                     <div class="flex items-center gap-2">
                                         <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
@@ -69,7 +73,6 @@
                                         :class="{ 'rotate-180': isDropdownOpen }" 
                                     />
                                 </button>
-
                                 <!-- Dropdown Menu -->
                                 <Transition 
                                     enter-active-class="transition duration-100 ease-out"
@@ -98,26 +101,31 @@
                                     </div>
                                 </Transition>
                             </div>
-                            <input 
+                            <Field
+                                name="phone"
                                 type="tel" 
                                 id="phone" 
                                 v-model="form.phone"
                                 placeholder="Enter 10 digits"
-                                class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] placeholder-gray-400"
-                                required
+                                class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
+                                :class="validationErrors.phone ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
                             />
                         </div>
+                        <ErrorMessage name="phone" class="text-red-500 text-sm mt-1" />
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-ninetea text-white mb-2">Message<span class="text-[#BB83FF]">*</span></label>
-                        <textarea 
+                        <Field
+                            as="textarea"
+                            name="message"
                             id="message" 
                             v-model="form.message"
                             rows="4" 
                             placeholder="Write your message"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] placeholder-gray-400"
-                            required
-                        ></textarea>
+                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
+                            :class="validationErrors.message ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
+                        />
+                        <ErrorMessage name="message" class="text-red-500 text-sm mt-1" />
                     </div>
                     <div class="flex justify-start">
                         <NuxtTurnstile v-model="turnstileToken" />
@@ -125,7 +133,7 @@
                     <div>
                         <button 
                             type="submit"
-                            class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg"
+                            class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg disabled:opacity-50"
                             :disabled="isSubmitting || !turnstileToken"
                         >
                             <span v-if="isSubmitting">Sending...</span>
@@ -133,10 +141,10 @@
                             <Icon v-if="!isSubmitting" name="pixelarticons:arrow-right" class="text-white text-xl -rotate-45" />
                         </button>
                     </div>
-                    <div v-if="error" class="text-red-500 text-center mt-4">
+                    <div v-if="error && !Object.keys(validationErrors).length" class="text-red-500 text-center mt-4">
                         {{ error }}
                     </div>
-                    <div v-if="success" class="text-green-500 text-center mt-4">
+                    <div v-if="success && !Object.keys(validationErrors).length" class="text-green-500 text-center mt-4">
                         {{ success }}
                     </div>
                 </form>
@@ -146,9 +154,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { useCookie } from 'nuxt/app'
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
 
 interface Country {
     code: string
@@ -196,38 +205,18 @@ onClickOutside(dropdownRef, () => {
     isDropdownOpen.value = false
 })
 
-const validateForm = (): boolean => {
-    let isValid = true
-    error.value = ''
-
-    if (!form.value.name.trim()) {
-        error.value = 'Name is required'
-        isValid = false
-    }
-
-    if (!form.value.email.trim()) {
-        error.value = 'Email is required'
-        isValid = false
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) {
-        error.value = 'Please enter a valid email address'
-        isValid = false
-    }
-
-    if (!form.value.phone.trim()) {
-        error.value = 'Phone number is required'
-        isValid = false
-    } else if (!/^\d{7,15}$/.test(form.value.phone)) {
-        error.value = 'Please enter a valid phone number'
-        isValid = false
-    }
-
-    if (!form.value.message.trim()) {
-        error.value = 'Message is required'
-        isValid = false
-    }
-
-    return isValid
-}
+const schema = yup.object({
+  name: yup.string()
+    .required('Name is required')
+    .matches(/^[a-zA-Z\s]*$/, 'Name can only contain letters and spaces')
+    .trim(),
+  email: yup.string().required('Email is required').email('Please enter a valid email address').trim(),
+  phone: yup.string()
+    .required('Phone number is required')
+    .matches(/^\d{7,15}$/, 'Please enter a valid phone number (7-15 digits)')
+    .trim(),
+  message: yup.string().required('Message is required').trim(),
+});
 
 const resetForm = (): void => {
     form.value = {
@@ -239,10 +228,11 @@ const resetForm = (): void => {
     error.value = ''
     success.value = ''
     turnstileToken.value = ''
+    // VeeValidate errors will clear automatically as form values change
 }
 
-const handleSubmit = async (): Promise<void> => {
-    if (!validateForm()) return
+const handleSubmit = async (values: any): Promise<void> => {
+    // Validation is now handled by VeeValidate before this function is called
     if (!turnstileToken.value) {
         error.value = 'Please complete the Turnstile verification'
         return
@@ -272,10 +262,10 @@ const handleSubmit = async (): Promise<void> => {
                 'X-CSRF-Token': token
             },
             body: JSON.stringify({
-                name: form.value.name,
-                email: form.value.email,
-                phone: `${selectedCountry.value.code}${form.value.phone}`,
-                message: form.value.message,
+                name: values.name,
+                email: values.email,
+                phone: `${selectedCountry.value.code}${values.phone}`,
+                message: values.message,
                 turnstileToken: turnstileToken.value
             }),
             credentials: 'same-origin'

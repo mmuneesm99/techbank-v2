@@ -2,10 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: false },
-  devServer: {
-    port: 3001,
-    host: '0.0.0.0'
-  },
   runtimeConfig: {
     // Private keys that are exposed to the server
     smtpHost: process.env.SMTP_HOST,
