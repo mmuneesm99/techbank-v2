@@ -29,14 +29,14 @@
             >
               Home
             </NuxtLink>
-            <div class="h-5 w-px bg-gray-700"></div>
+            <!-- <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
               to="/products" 
               class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
               :class="[$route.path.startsWith('/products') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
               Products
-            </NuxtLink>
+            </NuxtLink> -->
             <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
               to="/team" 
@@ -98,14 +98,14 @@
             <Icon name="pixelarticons:home" class="text-xl text-[#EEE0FF]" />
             Home
           </NuxtLink>
-          <NuxtLink 
+          <!-- <NuxtLink 
             to="/products" 
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"
             :class="[$route.path.startsWith('/products') ? 'text-white  bg-[#000000]' : 'text-white hover:text-purple-400']"
           >
             <Icon name="pixelarticons:heart" class="text-xl text-[#FFC2C2]" />
             Products
-          </NuxtLink>
+          </NuxtLink> -->
           <NuxtLink 
             to="/team" 
             class="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-medium transition-all duration-300"

@@ -1,2 +1,0 @@
-const a=".animate-fade-up[data-v-846e7796]{animation:fadeUp-846e7796 .8s ease-out forwards;opacity:0}@keyframes fadeUp-846e7796{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-pulse[data-v-846e7796]{animation:pulse-846e7796 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes pulse-846e7796{0%,to{opacity:1}50%{opacity:.5}}";export{a as i};
-//# sourceMappingURL=index-styles-1.mjs-DwpyiFXY.mjs.map

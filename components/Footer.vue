@@ -72,7 +72,7 @@
 // Navigation items for regular users
 const navigationItems = [
     { name: 'Home', path: '/' },
-    { name: 'Products', path: '/products' },
+    // { name: 'Products', path: '/products' },
     { name: 'Team', path: '/team' },
     { name: 'Career', path: '/careers' },
     { name: 'Contact', path: '/contact' }

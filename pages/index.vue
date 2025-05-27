@@ -29,14 +29,14 @@
                         class="hero-subtitle text-xs sm:text-sm md:text-[16px] text-[#000000] font-ninetea">Empowering
                         Businesses, Enabling Growth
                         TechBank's Products for Success</span>
-                    <nuxt-link to="/products"
+                    <button @click="scrollToAbout()"
                         class="bg-button-gradient font-ninetea text-white pl-3 md:pl-6 pr-2 py-2 md:py-2 text-xs md:text-base whitespace-nowrap flex items-center gap-1 md:gap-2 rounded-full hover:bg-gray-700 transition-all duration-300 active:scale-95 touch-manipulation">
-                        View Products
+                        EXPOLORE
                         <span class="bg-white h-5 w-5 md:h-8 md:w-8 flex items-center justify-center ml-0 rounded-full">
                             <Icon name="mynaui:arrow-long-up-right"
                                 class="text-[#8501A6] font-bold text-xs md:text-base" />
                         </span>
-                    </nuxt-link>
+                    </button>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
 
     <!-- About Section -->
     <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 items-center grid-cols-1 gap-8 md:gap-20 lg:px-8 py-16 md:py-24 relative overflow-hidden">
+        class="max-w-7xl about-section mx-auto px-4 sm:px-6 grid md:grid-cols-2 items-center grid-cols-1 gap-8 md:gap-20 lg:px-8 py-16 md:py-24 relative overflow-hidden">
         <div class="order-2 md:order-1">
             <img src="/images/about-bg.avifs" alt="TechBank Blockchain Technology Demonstration"
                 class="max-w-[300px] w-full sm:max-w-[350px] md:max-w-[400px] h-auto rounded-lg shadow-lg mx-auto" loading="lazy" />
@@ -81,7 +81,7 @@
     </div>
 
     <!-- Products Section -->
-    <div class="relative">
+    <div class="relative hidden">
         <div class="bg-[#010101]">
             <div class="absolute inset-0 w-full h-full flex items-center justify-center bottom-0">
                 <img src="/images/product-bg-pattern.webp" alt="TechBank Products Section Background Pattern"
@@ -347,7 +347,12 @@ const handleMouseLeave = (): void => {
         ease: 'power2.out'
     })
 }
-
+const scrollToAbout = () => {
+    const aboutSection = document.querySelector('.about-section')
+    if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' })
+    }
+}
 const handlePointerMove = (e: Event): void => {
     const textBlock = document.querySelector('.text-block')
     if (!textBlock) return

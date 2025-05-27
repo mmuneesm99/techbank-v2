@@ -1,2 +1,0 @@
-const a="@media (hover:none){.touch-manipulation[data-v-6b3109f0]{-webkit-tap-highlight-color:transparent}}@media (prefers-reduced-motion:reduce){[data-v-6b3109f0]{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}@keyframes fade-in-6b3109f0{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-fade-in[data-v-6b3109f0]{animation:fade-in-6b3109f0 .8s ease-out forwards}";export{a as i};
-//# sourceMappingURL=index-styles-1.mjs-CiV3sr4G.mjs.map
