@@ -7,19 +7,18 @@
                 <div
                     class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8]  to-transparent">
                 </div>
-                <div class="relative py-20 px-10 h-full">
+                <div class="relative md:pt-20 pt-10 px-10 flex flex-col items-center justify-around h-full">
                     <h4 class="text-white text-xl md:text-3xl font-nyx text-center mb-2">Let's connect and create the
                         next big thing in tech</h4>
-                    <div class="flex items-center justify-center absolute bottom-0 w-full px-10 py-10 right-0">
-                        <video autoplay loop muted playsinline
-                            class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
-                            <source src="/videos/interactive-keyboard.webm" type="video/webm">
-                        </video>
-                    </div>
+                    <video autoplay loop muted playsinline preload="auto" class="object-contain w-full"
+                        poster="/images/interactivekeyboard.webp">
+                        <source src="/videos/interactive-keyboard.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
 
-            <div class="w-full  p-8">
+            <div class="w-full  md:p-8">
                 <p class="text-[#BB83FF] text-sm font-ninetea mb-2 tracking-widest">BUILD THE FUTURE WITH US</p>
                 <h2 class="text-3xl md:text-4xl font-nyx text-white mb-8 tracking-wide">CONTACT US</h2>
                 <form @submit="onSubmit" class="space-y-6">
@@ -32,7 +31,7 @@
                             class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
                             :class="{ 'border-red-500': nameError && nameMeta.touched }">
                         <span v-if="nameError && nameMeta.touched" class=" text-sm mt-1">{{ nameError
-                            }}</span>
+                        }}</span>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-ninetea text-white mb-2">Email<span
@@ -42,7 +41,7 @@
                             class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
                             :class="{ 'border-red-500': emailError && emailMeta.touched }">
                         <span v-if="emailError && emailMeta.touched" class=" text-sm mt-1">{{ emailError
-                            }}</span>
+                        }}</span>
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-ninetea text-white mb-2">Phone Number<span

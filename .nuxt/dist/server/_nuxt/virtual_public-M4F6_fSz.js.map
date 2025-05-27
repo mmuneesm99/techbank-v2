@@ -1,1 +1,0 @@
-{"version":3,"file":"virtual_public-M4F6_fSz.js","sources":["../../../../virtual:public?%2Fimages%2Fproduct-bg-pattern.webp"],"sourcesContent":["import { publicAssetsURL } from '#internal/nuxt/paths';export default publicAssetsURL(\"/images/product-bg-pattern.webp\")"],"names":[],"mappings":";AAAuD,MAAe,aAAA,gBAAgB,iCAAiC;"}

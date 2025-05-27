@@ -425,25 +425,11 @@ declare module 'nuxt/schema' {
    turnstileSiteKey: string,
 
    "nuxt-scripts": {
-      version: string,
+      version: any,
 
       defaultScriptOptions: {
          trigger: string,
       },
-   },
-
-   "nuxt-schema-org": {
-      reactive: boolean,
-
-      minify: boolean,
-
-      scriptAttributes: {
-         "data-nuxt-schema-org": boolean,
-      },
-
-      identity: any,
-
-      version: string,
    },
 
    "seo-utils": {

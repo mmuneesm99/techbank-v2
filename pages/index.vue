@@ -64,7 +64,7 @@
                 managing assets in the Web3 world.
             </p>
             <div class="flex divide-x divide-[#C0C0C03D] w-full justify-center md:justify-start">
-                <div class="px-4 md:pr-0">
+                <div class="pr-4 md:pr-8">
                     <h3 class="font-nyx text-2xl sm:text-2xl md:text-[28px] mb-1 md:mb-2">4</h3>
                     <p class="font-ninetea text-xs sm:text-sm md:text-base text-[#C0C0C0]">Products</p>
                 </div>
@@ -72,7 +72,7 @@
                     <h3 class="font-nyx text-2xl sm:text-2xl md:text-[28px] mb-1 md:mb-2">2000+</h3>
                     <p class="font-ninetea text-xs sm:text-sm md:text-base text-[#C0C0C0]">Active Users</p>
                 </div>
-                <div class="px-4 md:px-6 md:pl-8">
+                <div class="pl-4 md:pl-8">
                     <h3 class="font-nyx text-2xl sm:text-2xl md:text-[28px] mb-1 md:mb-2">1M+</h3>
                     <p class="font-ninetea text-xs sm:text-sm md:text-base text-[#C0C0C0]">Downloads</p>
                 </div>

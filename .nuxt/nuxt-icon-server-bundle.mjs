@@ -1,5 +1,3 @@
-import { createRequire } from 'node:module'
-const require = createRequire(import.meta.url)
 function createRemoteCollection(fetchEndpoint) {
   let _cache
   return async () => {
@@ -12,10 +10,10 @@ function createRemoteCollection(fetchEndpoint) {
 }
 
 export const collections = {
-  'devicon': () => require('@iconify-json/devicon/icons.json'),
-  'flagpack': () => require('@iconify-json/flagpack/icons.json'),
-  'logos': () => require('@iconify-json/logos/icons.json'),
-  'pixelarticons': () => require('@iconify-json/pixelarticons/icons.json'),
-  'skill-icons': () => require('@iconify-json/skill-icons/icons.json'),
-  'token-branded': () => require('@iconify-json/token-branded/icons.json'),
+  'devicon': () => import('@iconify-json/devicon/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'flagpack': () => import('@iconify-json/flagpack/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'logos': () => import('@iconify-json/logos/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'pixelarticons': () => import('@iconify-json/pixelarticons/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'skill-icons': () => import('@iconify-json/skill-icons/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'token-branded': () => import('@iconify-json/token-branded/icons.json', { with: { type: 'json' } }).then(m => m.default),
 }

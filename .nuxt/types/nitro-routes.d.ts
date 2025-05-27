@@ -18,29 +18,14 @@ declare module "nitropack/types" {
     '/api/_nuxt_icon/:collection': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/icon/dist/runtime/server/api').default>>>>
     }
-    '/__site-config__/debug.json': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/routes/__site-config__/debug').default>>>>
-    }
     '/robots.txt': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/robots/dist/runtime/server/routes/robots-txt').default>>>>
-    }
-    '/__robots__/debug.json': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/robots/dist/runtime/server/routes/__robots__/debug').default>>>>
-    }
-    '/__robots__/debug-path.json': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/robots/dist/runtime/server/routes/__robots__/debug-path').default>>>>
-    }
-    '/__sitemap__/debug.json': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/__sitemap__/debug').default>>>>
     }
     '/__sitemap__/style.xsl': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/sitemap.xsl').default>>>>
     }
     '/sitemap.xml': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/sitemap.xml').default>>>>
-    }
-    '/__schema-org__/debug.json': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-schema-org/dist/runtime/server/routes/__schema-org__/debug').default>>>>
     }
     '/__nuxt_island/**': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/#internal/nuxt/island-renderer').default>>>>

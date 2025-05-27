@@ -77,160 +77,140 @@
       </div>
     </div>
     <DrawerModal v-model="showDrawer">
-      <img src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
-      <div class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent">
+      <nuxt-img src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
+      <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="submitApplication">
         <div class="text-[#BB83FF] text-lg font-ninetea mb-1">Ready to Build the Future?</div>
-        <div class="text-white font-thin text-2xl font-nyx mb-2 tracking-wider">DROP YOUR DETAILS BELOW.</div>
-        <div class="text-center flex gap-5 items-center py-2 rounded-md mb-3">
-          <p class="text-sm text-gray-300 font-ninetea">Applying for:</p>
-          <p class="text-lg text-white font-ninetea font-semibold tracking-wide">{{ job.title }}</p>
-        </div>
-        <Form @submit="handleSubmit" :validation-schema="applicationSchema" class="w-full" v-slot="{ errors: validationErrors, meta }">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label class="block text-white text-sm mb-1">First Name *</label>
-              <Field name="firstName" type="text" v-model="form.firstName" placeholder="Enter Your First Name"
-                class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': validationErrors.firstName }" />
-              <ErrorMessage name="firstName" class="text-xs text-red-500 mt-1 block" />
-            </div>
-            <div>
-              <label class="block text-white text-sm mb-1">Last Name *</label>
-              <Field name="lastName" type="text" v-model="form.lastName" placeholder="Enter Your Last Name"
-                class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': validationErrors.lastName }" />
-              <ErrorMessage name="lastName" class="text-xs text-red-500 mt-1 block" />
-            </div>
-            <div>
-              <label class="block text-white text-sm mb-1">E Mail *</label>
-              <Field name="email" type="email" v-model="form.email" placeholder="Enter Your Email"
-                class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': validationErrors.email }" />
-              <ErrorMessage name="email" class="text-xs text-red-500 mt-1 block" />
-            </div>
-            <div>
-              <label class="block text-white text-sm mb-1">Phone Number *</label>
-              <div class="flex gap-2 items-center">
-                <div class="relative" ref="dropdownRef">
-                  <Field name="countryCode" v-model="form.countryCode" v-slot="{ field, errors: countryCodeErrors }">
-                    <button type="button" @click="isDropdownOpen = !isDropdownOpen"
-                    class="px-3 py-2 bg-[#1A1A1A] border border-[#474747] rounded text-white min-w-[90px] flex items-center justify-between focus:outline-none focus:border-[#BB83FF]"
-                    :class="{ 'border-red-500': countryCodeErrors.length > 0 || validationErrors.countryCode }">
-                    <div class="flex items-center gap-2">
-                      <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
-                      <span>{{ selectedCountry.code }}</span>
-                    </div>
-                    <Icon name="heroicons:chevron-down" class="w-4 h-4 transition-transform duration-200"
-                      :class="{ 'rotate-180': isDropdownOpen }" />
-                  </button>
-                  </Field>
-                  <Transition enter-active-class="transition duration-100 ease-out"
-                    enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
-                    leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
-                    leave-to-class="transform scale-95 opacity-0">
-                    <div v-if="isDropdownOpen"
-                      class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden">
-                      <div class="py-1 max-h-48 overflow-auto custom-scrollbar">
-                        <button v-for="country in countries" :key="country.code" @mousedown="selectCountry(country)"
-                          class="w-full px-4 py-2 text-left text-white hover:bg-[#3B2A5A] flex items-center gap-2 transition-colors duration-150"
-                          :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }">
-                          <Icon :name="`flagpack:${country.flag}`" class="w-5 h-5" />
-                          <span>{{ country.code }}</span>
-                        </button>
-                      </div>
-                    </div>
-                  </Transition>
-                </div>
-                <Field name="phone" type="tel" v-model="form.phone" placeholder="Enter Your Phone Number"
-                  class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                  :class="{ 'border-red-500': validationErrors.phone }" />
-              </div>
-              <ErrorMessage name="countryCode" class="text-xs text-red-500 mt-1 block" />
-              <ErrorMessage name="phone" class="text-xs text-red-500 mt-1 block" />
-            </div>
-            <div>
-              <label class="block text-white text-sm mb-1">Current Role</label>
-              <Field name="currentRole" type="text" v-model="form.currentRole" placeholder="Enter Your Current Role"
-                class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': validationErrors.currentRole }" />
-              <ErrorMessage name="currentRole" class="text-xs text-red-500 mt-1 block" />
-            </div>
-            <div>
-              <label class="block text-white text-sm mb-1">Years of Experience</label>
-              <Field name="experience" type="text" v-model="form.experience" placeholder="Enter Years of Experience"
-                class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-                :class="{ 'border-red-500': validationErrors.experience }" />
-              <ErrorMessage name="experience" class="text-xs text-red-500 mt-1 block" />
-            </div>
-          </div>
-          <div class="mb-4">
-            <label class="block text-white text-sm mb-1">Additional Information's</label>
-            <Field as="textarea" name="message" rows="3" v-model="form.message" placeholder="Enter Your Message"
+        <div class="text-white font-thin text-2xl font-nyx mb-6 tracking-wider">DROP YOUR DETAILS BELOW.</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-white text-sm mb-1">First Name *</label>
+            <input type="text" v-model="firstName" @blur="firstNameBlur" placeholder="Enter Your First Name"
               class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
-              :class="{ 'border-red-500': validationErrors.message }" />
-            <ErrorMessage name="message" class="text-xs text-red-500 mt-1 block" />
+              :class="{ 'border-red-500': firstNameError }" />
+            <span v-if="firstNameError" class="text-xs text-red-500 mt-1 block">{{ firstNameError }}</span>
           </div>
-          <div class="mb-4">
-            <label class="block text-white text-sm mb-1">Upload Your Resume</label>
-            <Field name="resume" v-model="form.resume" v-slot="{ field, handleChange, handleBlur }">
-              <label for="resume-upload"
-                class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition"
-                :class="{ 'border-red-500': validationErrors.resume }">
-                <Icon name="mdi:upload" class="text-white text-2xl mb-1" />
-                <span class="text-white font-ninetea">Upload Your Resume</span>
-                <input 
-                  id="resume-upload" 
-                  type="file" 
-                  accept=".pdf" 
-                  class="hidden"
-                  @change="e => { handleChange(e); handleFileUpload(e); }"
-                  @blur="handleBlur"
-                />
-                <span v-if="resumeName" class="block text-xs text-[#BB83FF] mt-2">{{ resumeName }}</span>
-              </label>
-            </Field>
-            <ErrorMessage name="resume" class="text-xs text-red-500 mt-1 block" />
-            <div class="text-xs text-[#888] px-1 pt-1">Max: 10MB ( PDF only )</div>
+          <div>
+            <label class="block text-white text-sm mb-1">Last Name *</label>
+            <input type="text" v-model="lastName" @blur="lastNameBlur" placeholder="Enter Your Last Name"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': lastNameError }" />
+            <span v-if="lastNameError" class="text-xs text-red-500 mt-1 block">{{ lastNameError }}</span>
           </div>
-          <div class="text-xs text-[#888] mb-4">
-            The information you submit is processed in accordance with our <a href="#"
-              class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
-            TechBank.
+          <div>
+            <label class="block text-white text-sm mb-1">E Mail *</label>
+            <input type="email" v-model="email" @blur="emailBlur" placeholder="Enter Your Email"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': emailError }" />
+            <span v-if="emailError" class="text-xs text-red-500 mt-1 block">{{ emailError }}</span>
           </div>
-          <div class="flex justify-start mb-4">
-            <NuxtTurnstile v-model="turnstileToken" />
+          <div>
+            <label class="block text-white text-sm mb-1">Phone Number *</label>
+            <div class="flex gap-2 items-center">
+              <div class="relative" ref="dropdownRef">
+                <button type="button" @click="isDropdownOpen = !isDropdownOpen" @blur="countryCodeBlur"
+                  class="px-3 py-2 bg-[#1A1A1A] border border-[#474747] rounded text-white min-w-[90px] flex items-center justify-between focus:outline-none focus:border-[#BB83FF]"
+                  :class="{ 'border-red-500': countryCodeError }">
+                  <div class="flex items-center gap-2">
+                    <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
+                    <span>{{ selectedCountry.code }}</span>
+                  </div>
+                  <Icon name="heroicons:chevron-down" class="w-4 h-4 transition-transform duration-200"
+                    :class="{ 'rotate-180': isDropdownOpen }" />
+                </button>
+                <Transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <div v-if="isDropdownOpen"
+                    class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden">
+                    <div class="py-1 max-h-60 overflow-auto">
+                      <button v-for="country in countries" :key="country.code" @mousedown="selectCountry(country)"
+                        class="w-full px-4 py-2 text-left text-white hover:bg-[#3B2A5A] flex items-center gap-2 transition-colors duration-150"
+                        :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }">
+                        <Icon :name="`flagpack:${country.flag}`" class="w-5 h-5" />
+                        <span>{{ country.code }}</span>
+                      </button>
+                    </div>
+                  </div>
+                </Transition>
+              </div>
+              <input type="tel" v-model="phone" @blur="phoneBlur" placeholder="Enter Your Phone Number"
+                class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+                :class="{ 'border-red-500': phoneError }" />
+            </div>
+            <span v-if="countryCodeError" class="text-xs text-red-500 mt-1 block">{{ countryCodeError }}</span>
+            <span v-if="phoneError" class="text-xs text-red-500 mt-1 block">{{ phoneError }}</span>
           </div>
+          <div>
+            <label class="block text-white text-sm mb-1">Current Role</label>
+            <input type="text" v-model="currentRole" @blur="currentRoleBlur" placeholder="Enter Your Current Role"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': currentRoleError }" />
+            <span v-if="currentRoleError" class="text-xs text-red-500 mt-1 block">{{ currentRoleError }}</span>
+          </div>
+          <div>
+            <label class="block text-white text-sm mb-1">Years of Experience</label>
+            <input type="text" v-model="experience" @blur="experienceBlur" placeholder="Enter Years of Experience"
+              class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+              :class="{ 'border-red-500': experienceError }" />
+            <span v-if="experienceError" class="text-xs text-red-500 mt-1 block">{{ experienceError }}</span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-white text-sm mb-1">Additional Information's</label>
+          <textarea rows="3" v-model="message" @blur="messageBlur" placeholder="Enter Your Message"
+            class="w-full bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
+            :class="{ 'border-red-500': messageError }"></textarea>
+          <span v-if="messageError" class="text-xs text-red-500 mt-1 block">{{ messageError }}</span>
+        </div>
+        <div class="mb-4">
+          <label class="block text-white text-sm mb-1">Upload Your Resume</label>
+          <label for="resume-upload"
+            class="block cursor-pointer bg-[#1A1A1A] border border-[#474747] rounded w-full py-6 flex flex-col items-center justify-center text-center relative hover:border-[#BB83FF] transition">
+            <Icon name="mdi:upload" class="text-white text-2xl mb-1" />
+            <span class="text-white font-ninetea">Upload Your Resume</span>
+            <input id="resume-upload" type="file" accept=".pdf,.doc,.docx,.png,.jpeg,.jpg" class="hidden"
+              @change="onFileChange" />
+            <span v-if="resumeName" class="block text-xs text-[#BB83FF] mt-2">{{ resumeName }}</span>
+          </label>
+          <span v-if="resumeError" class="text-xs text-red-500 mt-1 block">{{ resumeError }}</span>
+          <div class="text-xs text-[#888] px-1 pt-1">Max: 10MB ( Type : pdf, doc, png, jpeg, docx )</div>
+        </div>
+        <div class="text-xs text-[#888] mb-4">
+          The information you submit is processed in accordance with our <a href="#"
+            class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
+          TechBank.
+        </div>
+        <div class="flex mb-4">
+          <NuxtTurnstile v-model="turnstileToken" @verify="onVerify" @error="onError" @expire="onExpire" />
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4">
           <button type="submit"
-            class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit disabled:opacity-50 disabled:cursor-not-allowed"
-            :disabled="isSubmitting || !turnstileToken || !meta.valid">
-            <template v-if="isSubmitting">
-              <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Submitting...
-            </template>
-            <template v-else>
-              Submit
-              <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
-            </template>
+            class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-full sm:w-fit"
+            :disabled="loading || !turnstileToken">
+            <span v-if="loading">Sending...</span>
+            <span v-else>Submit</span>
+            <Icon v-if="!loading" name="pixelarticons:arrow-right" class="text-white text-xl -rotate-45" />
           </button>
-          <div v-if="submissionStatus" class="mt-4 text-center text-sm" 
-               :class="submissionStatus.type === 'success' ? 'text-green-400' : 'text-red-400'">
-            {{ submissionStatus.message }}
+          <div v-if="success" class="text-green-400 text-sm text-center sm:text-left">
+            {{ success }}
           </div>
-        </Form>
-      </div>
+          <div v-if="error" class="text-red-400 text-sm text-center sm:text-left">
+            {{ error }}
+          </div>
+        </div>
+      </form>
     </DrawerModal>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
-import { ref, computed, reactive, watch } from 'vue';
-import { Form, Field, ErrorMessage, useForm } from 'vee-validate';
-import * as yup from 'yup';
+import { useRoute } from 'vue-router'
+import { ref, computed } from 'vue'
 import DrawerModal from '~/components/DrawerModal.vue'
+import { useForm, useField } from 'vee-validate'
+import * as yup from 'yup'
+import axios from 'axios'
 
 const jobs = [
   {
@@ -303,24 +283,63 @@ const jobs = [
 ]
 
 const route = useRoute()
+const job = jobs[parseInt(route.params.id, 10) - 1]
+
 const showDrawer = ref(false)
 const resumeName = ref('')
-const isSubmitting = ref(false)
-const submissionStatus = ref(null)
-const turnstileToken = ref('')
-const { resetForm: veeResetForm, setFieldValue, setFieldError, values: veeValues } = useForm();
-
-const form = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  countryCode: '+91',
-  currentRole: '',
-  experience: '',
-  message: '',
-  resume: null
+const resumeFile = ref(null)
+const loading = ref(false)
+const error = ref('')
+const success = ref('')
+const schema = yup.object({
+  firstName: yup.string().required('First name is required').matches(/^[A-Za-z\s]+$/, 'Only alphabets allowed'),
+  lastName: yup.string().required('Last name is required').matches(/^[A-Za-z\s]+$/, 'Only alphabets allowed'),
+  email: yup.string().required('Email is required').email('Please enter a valid email'),
+  countryCode: yup.string().required('Country code is required'),
+  phone: yup.string().required('Phone number is required').matches(/^\d{7,15}$/, 'Enter a valid phone number'),
+  currentRole: yup.string(),
+  experience: yup.string(),
+  message: yup.string(),
+  resume: yup.mixed().required('Resume is required').test('fileSize', 'File too large', value => !value || (value && value.size <= 10 * 1024 * 1024)).test('fileType', 'Unsupported file type', value => !value || (value && [
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'image/png',
+    'image/jpeg'
+  ].includes(value.type)))
 })
+
+const { handleSubmit, errors, resetForm } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    countryCode: '+91',
+    phone: '',
+    currentRole: '',
+    experience: '',
+    message: '',
+    resume: null
+  }
+})
+
+const { value: firstName, errorMessage: firstNameError, handleBlur: firstNameBlur } = useField('firstName')
+const { value: lastName, errorMessage: lastNameError, handleBlur: lastNameBlur } = useField('lastName')
+const { value: email, errorMessage: emailError, handleBlur: emailBlur } = useField('email')
+const { value: countryCode, errorMessage: countryCodeError, handleBlur: countryCodeBlur } = useField('countryCode')
+const { value: phone, errorMessage: phoneError, handleBlur: phoneBlur } = useField('phone')
+const { value: currentRole, errorMessage: currentRoleError, handleBlur: currentRoleBlur } = useField('currentRole')
+const { value: experience, errorMessage: experienceError, handleBlur: experienceBlur } = useField('experience')
+const { value: message, errorMessage: messageError, handleBlur: messageBlur } = useField('message')
+const { value: resume, errorMessage: resumeError } = useField('resume')
+
+const onFileChange = (e) => {
+  const file = e.target.files[0]
+  resumeName.value = file ? file.name : ''
+  resumeFile.value = file
+  resume.value = file
+}
 
 const countries = [
   { code: '+91', flag: 'in', name: 'India' },
@@ -334,174 +353,78 @@ const selectedCountry = ref(countries[0])
 
 const selectCountry = (country) => {
   selectedCountry.value = country
-  form.countryCode = country.code
-  setFieldValue('countryCode', country.code); // Update VeeValidate field
+  countryCode.value = country.code
   isDropdownOpen.value = false
 }
 
-// Initialize countryCode in VeeValidate form state
-watch(() => selectedCountry.value, (newVal) => {
-  if (newVal) {
-    setFieldValue('countryCode', newVal.code);
-  }
-}, { immediate: true });
+const turnstileToken = ref('')
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-const ALLOWED_FILE_TYPES = ['application/pdf'];
-
-const applicationSchema = yup.object({
-  firstName: yup.string()
-    .required('First name is required')
-    .matches(/^[a-zA-Z\s]*$/, 'First name can only contain letters and spaces')
-    .trim(),
-  lastName: yup.string()
-    .required('Last name is required')
-    .matches(/^[a-zA-Z\s]*$/, 'Last name can only contain letters and spaces')
-    .trim(),
-  email: yup.string().required('Email is required').email('Please enter a valid email').trim(),
-  countryCode: yup.string().required('Country code is required'),
-  phone: yup.string().required('Phone number is required').matches(/^\d{7,15}$/, 'Enter a valid phone number (7-15 digits)').trim(),
-  currentRole: yup.string().trim().optional(),
-  experience: yup.string().trim().optional(),
-  message: yup.string().trim().optional(),
-  resume: yup.mixed()
-    .required('Resume is required')
-    .test('fileSize', 'File size should not exceed 10MB', value => {
-      return value && value.size <= MAX_FILE_SIZE;
-    })
-    .test('fileType', 'Please upload a PDF file', value => {
-      return value && ALLOWED_FILE_TYPES.includes(value.type);
-    })
-});
-
-const handleFileUpload = (event) => {
-  const input = event.target
-  if (input.files && input.files[0]) {
-    const file = input.files[0]
-    // Manual check for immediate feedback, Yup will also validate on submit
-    if (file.size > MAX_FILE_SIZE) {
-      setFieldError('resume', 'File size should not exceed 10MB');
-      resumeName.value = file.name + ' (Too large)';
-      form.resume = null; // Clear invalid file
-      return
-    }
-    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-      setFieldError('resume', 'Please upload a PDF file');
-      resumeName.value = file.name + ' (Invalid type)';
-      form.resume = null; // Clear invalid file
-      return
-    }
-    form.resume = file
-    resumeName.value = file.name
-    setFieldValue('resume', file); // Update VeeValidate field
-    setFieldError('resume', undefined); // Clear error if previously set
-  }
+const onVerify = (token) => {
+  turnstileToken.value = token
 }
 
-const handleSubmit = async (values) => {
-  // Validation is handled by VeeValidate before this function is called
+const onError = () => {
+  turnstileToken.value = ''
+}
+
+const onExpire = () => {
+  turnstileToken.value = ''
+}
+
+const submitApplication = async () => {
   if (!turnstileToken.value) {
-    // This could be a general form error or a specific field error if you add a Turnstile field to your schema
     submissionStatus.value = { type: 'error', message: 'Please complete the Turnstile verification.' };
     return
   }
+  error.value = ''
+  success.value = ''
+  loading.value = true
 
-  isSubmitting.value = true
-  submissionStatus.value = null
+  const formData = new FormData()
+  formData.append('name', `${firstName.value} ${lastName.value}`)
+  formData.append('email', email.value)
+  formData.append('phone', `${countryCode.value}${phone.value}`)
+  formData.append('currentRole', currentRole.value)
+  formData.append('experience', experience.value)
+  formData.append('message', message.value)
+  formData.append('position', job.title)
+  formData.append('resume', resumeFile.value)
+  formData.append('turnstileToken', turnstileToken.value)
 
   try {
-    // First get CSRF token
     const csrfResponse = await fetch('/api/csrf', {
       method: 'GET',
       credentials: 'same-origin'
     })
-    
     if (!csrfResponse.ok) {
       throw new Error('Failed to get CSRF token')
     }
-
     const { token } = await csrfResponse.json()
 
-    const formData = new FormData()
-    // Combine first and last name
-    formData.append('name', `${values.firstName} ${values.lastName}`)
-    formData.append('email', values.email)
-    // Combine country code and phone
-    formData.append('phone', `${values.countryCode}${values.phone}`)
-    formData.append('position', job.value.title)
-    formData.append('experience', values.experience || '') // Send empty string if optional and not filled
-    formData.append('message', values.message || '') // Send empty string if optional and not filled
-    formData.append('turnstileToken', turnstileToken.value)
-    if (values.resume) { // resume comes from `values` which is linked to form.resume via v-model/setFieldValue
-      formData.append('resume', values.resume)
-    }
-
-    const response = await fetch('/api/job-application', {
-      method: 'POST',
+    const response = await axios.post('/api/job-application', formData, {
       headers: {
-        'X-CSRF-Token': token
+        'Content-Type': 'multipart/form-data',
+        'X-CSRF-Token': token // Include CSRF token in the request headers
       },
-      body: formData,
       credentials: 'same-origin'
     })
 
-    if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message || 'Failed to submit application')
+    if (response.data.success) {
+      success.value = 'Application submitted successfully! Closing form...'
+      setTimeout(() => {
+        resetForm()
+        turnstileToken.value = '' // Reset Turnstile token
+        resumeName.value = '' // Clear resume name display
+        showDrawer.value = false
+        success.value = '' // Clear success message after closing
+      }, 2500) // Close after 2.5 seconds
+    } else {
+      error.value = response.data.error || 'Failed to submit application. Please try again.'
     }
-
-    submissionStatus.value = {
-      type: 'success',
-      message: 'Application submitted successfully!'
-    }
-
-    // Reset reactive form state
-    Object.keys(form).forEach(key => {
-      form[key] = key === 'countryCode' ? '+91' : ''
-    })
-    form.resume = null
-    resumeName.value = ''
-    selectedCountry.value = countries[0]; // Reset country dropdown visual
-    turnstileToken.value = '' // Reset Turnstile token
-    veeResetForm(); // Reset VeeValidate form state and errors
-    setFieldValue('countryCode', countries[0].code); // Ensure countryCode is reset in VeeValidate
-  } catch (error) {
-    submissionStatus.value = {
-      type: 'error',
-      message: error.message || 'Failed to submit application. Please try again.'
-    }
+  } catch (err) {
+    error.value = err.response?.data?.error || 'An error occurred. Please try again later.'
   } finally {
-    isSubmitting.value = false
+    loading.value = false
   }
 }
-
-const job = computed(() => {
-  return jobs.find(j => j.title.toLowerCase() === route.params.id.toString().toLowerCase()) || jobs[0]
-  // Consider a more robust "not found" handling:
-  // const foundJob = jobs.find(j => j.title.toLowerCase() === route.params.id.toString().toLowerCase());
-  // if (!foundJob) {
-  //   // Handle not found case, e.g., redirect or show error message
-  //   // For now, returning a dummy object or null might be better than jobs[0]
-  //   // console.error("Job not found:", route.params.id);
-  //   // return { title: "Job Not Found", description: "", requirements: [], responsibilities: [] }; 
-  // }
-  // return foundJob;
-})
-
 </script>
-
-<style scoped>
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: #2a2a2a; /* Slightly different from contact page for distinction or keep same */
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #4a3b7a; /* Slightly different or keep same */
-    border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #5a4b8a; /* Slightly different or keep same */
-}
-</style>
