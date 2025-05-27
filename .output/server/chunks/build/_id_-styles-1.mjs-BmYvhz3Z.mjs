@@ -1,2 +1,0 @@
-const a=".custom-scrollbar[data-v-d86901fe]::-webkit-scrollbar{width:6px}.custom-scrollbar[data-v-d86901fe]::-webkit-scrollbar-track{background:#2a2a2a}.custom-scrollbar[data-v-d86901fe]::-webkit-scrollbar-thumb{background:#4a3b7a;border-radius:3px}.custom-scrollbar[data-v-d86901fe]::-webkit-scrollbar-thumb:hover{background:#5a4b8a}";export{a as _};
-//# sourceMappingURL=_id_-styles-1.mjs-BmYvhz3Z.mjs.map

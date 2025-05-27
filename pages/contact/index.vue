@@ -1,20 +1,16 @@
 <template>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Left Section with Video -->
-            <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex h-fit flex-col items-center">
-                <img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
+            <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex flex-col items-center">
+                <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
                     class="w-full h-full absolute object-cover" />
-                <div class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8] to-transparent">
+                <div
+                    class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8]  to-transparent">
                 </div>
-                <div class="relative md:py-20 py-10 px-10 h-fit">
+                <div class="relative py-20 px-10 h-full">
                     <h4 class="text-white text-xl md:text-3xl font-nyx text-center mb-2">Let's connect and create the
                         next big thing in tech</h4>
-                    <div class="flex items-center justify-center bottom-0 w-full px-10 md:py-10 right-0">
-                        <!-- <video autoplay loop muted playsinline
-                            class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
-                            <source src="/videos/interactive-keyboard.webm" type="video/webm">
-                        </video> -->
+                    <div class="flex items-center justify-center absolute bottom-0 w-full px-10 py-10 right-0">
                         <video autoplay loop muted playsinline
                             class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
                             <source src="/videos/interactive-keyboard.webm" type="video/webm">
@@ -23,84 +19,62 @@
                 </div>
             </div>
 
-            <!-- Right Section with Form -->
-            <div class="w-full md:p-8">
+            <div class="w-full  p-8">
                 <p class="text-[#BB83FF] text-sm font-ninetea mb-2 tracking-widest">BUILD THE FUTURE WITH US</p>
                 <h2 class="text-3xl md:text-4xl font-nyx text-white mb-8 tracking-wide">CONTACT US</h2>
-                <Form
-                    @submit="handleSubmit"
-                    :validation-schema="schema"
-                    :validate-on-change="false"
-                    :validate-on-blur="false"
-                    :validate-on-input="false"
-                    class="space-y-6"
-                    v-slot="{ errors: validationErrors }">
+                <form @submit="onSubmit" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm font-ninetea text-white mb-2">Name<span class="text-[#BB83FF]">*</span></label>
-                        <Field
-                            name="name"
-                            type="text" 
-                            id="name" 
-                            v-model="form.name"
-                            placeholder="Enter Your Name"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
-                            :class="validationErrors.name ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
-                        />
-                        <ErrorMessage name="name" class="text-red-500 text-sm mt-1" />
+                        <label for="name" class="block text-sm font-ninetea text-white mb-2">Name<span
+                                class="">*</span></label>
+                        <input type="text" id="name" :value="name"
+                            @input="(e) => nameChange(formatName(e.target.value))" @blur="nameBlur"
+                            @keypress="handleKeyPress" placeholder="Enter Your Name (letters only)"
+                            class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
+                            :class="{ 'border-red-500': nameError && nameMeta.touched }">
+                        <span v-if="nameError && nameMeta.touched" class=" text-sm mt-1">{{ nameError
+                            }}</span>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-ninetea text-white mb-2">Email<span class="text-[#BB83FF]">*</span></label>
-                        <Field
-                            name="email"
-                            type="email" 
-                            id="email" 
-                            v-model="form.email"
-                            placeholder="Enter Email"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
-                            :class="validationErrors.email ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
-                        />
-                        <ErrorMessage name="email" class="text-red-500 text-sm mt-1" />
+                        <label for="email" class="block text-sm font-ninetea text-white mb-2">Email<span
+                                class="">*</span></label>
+                        <input type="email" id="email" :value="email" @input="emailChange" @blur="emailBlur"
+                            @keypress="handleKeyPress" placeholder="Enter Email"
+                            class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
+                            :class="{ 'border-red-500': emailError && emailMeta.touched }">
+                        <span v-if="emailError && emailMeta.touched" class=" text-sm mt-1">{{ emailError
+                            }}</span>
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-ninetea text-white mb-2">Phone Number<span class="text-[#BB83FF]">*</span></label>
+                        <label for="phone" class="block text-sm font-ninetea text-white mb-2">Phone Number<span
+                                class="">*</span></label>
                         <div class="flex items-center gap-2">
                             <div class="relative" ref="dropdownRef">
-                                <button 
-                                    type="button" 
-                                    @click="isDropdownOpen = !isDropdownOpen"
-                                    class="px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-[#BB83FF] min-w-[120px] flex items-center justify-between border border-transparent"
-                                >
+                                <button type="button" @click="isDropdownOpen = !isDropdownOpen" @blur="countryCodeBlur"
+                                    class="px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-purple-500 min-w-[120px] flex items-center justify-between"
+                                    :class="{ 'border-red-500': countryCodeError && countryCodeMeta.touched }">
                                     <div class="flex items-center gap-2">
                                         <Icon :name="`flagpack:${selectedCountry.flag}`" class="w-5 h-5" />
                                         <span>{{ selectedCountry.code }}</span>
                                     </div>
-                                    <Icon 
-                                        name="heroicons:chevron-down"
+                                    <Icon name="heroicons:chevron-down"
                                         class="w-4 h-4 transition-transform duration-200"
-                                        :class="{ 'rotate-180': isDropdownOpen }" 
-                                    />
+                                        :class="{ 'rotate-180': isDropdownOpen }" />
                                 </button>
+
                                 <!-- Dropdown Menu -->
-                                <Transition 
-                                    enter-active-class="transition duration-100 ease-out"
+                                <Transition enter-active-class="transition duration-100 ease-out"
                                     enter-from-class="transform scale-95 opacity-0"
                                     enter-to-class="transform scale-100 opacity-100"
                                     leave-active-class="transition duration-75 ease-in"
                                     leave-from-class="transform scale-100 opacity-100"
-                                    leave-to-class="transform scale-95 opacity-0"
-                                >
-                                    <div 
-                                        v-if="isDropdownOpen"
-                                        class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden"
-                                    >
+                                    leave-to-class="transform scale-95 opacity-0">
+                                    <div v-if="isDropdownOpen"
+                                        class="absolute z-10 mt-1 w-full bg-[#1A1A1A] rounded-lg shadow-lg border border-[#3B2A5A] overflow-hidden">
                                         <div class="py-1 max-h-60 overflow-auto">
-                                            <button 
-                                                v-for="country in countries" 
-                                                :key="country.code"
+                                            <button v-for="country in countries" :key="country.code"
                                                 @mousedown="selectCountry(country)"
                                                 class="w-full px-4 py-2 text-left text-white hover:bg-[#3B2A5A] flex items-center gap-2 transition-colors duration-150"
-                                                :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }"
-                                            >
+                                                :class="{ 'bg-[#3B2A5A]': country.code === selectedCountry.code }">
                                                 <Icon :name="`flagpack:${country.flag}`" class="w-5 h-5" />
                                                 <span>{{ country.code }}</span>
                                             </button>
@@ -108,92 +82,128 @@
                                     </div>
                                 </Transition>
                             </div>
-                            <Field
-                                name="phone"
-                                type="tel" 
-                                id="phone" 
-                                v-model="form.phone"
-                                placeholder="Enter 10 digits"
-                                class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
-                                :class="validationErrors.phone ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
-                            />
+                            <input type="tel" id="phone" :value="phone"
+                                @input="(e) => phoneChange(formatPhoneNumber(e.target.value))" @blur="phoneBlur"
+                                @keypress="handleKeyPress" placeholder="Enter 10 digits"
+                                class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
+                                :class="{ 'border-red-500': phoneError && phoneMeta.touched }">
                         </div>
-                        <ErrorMessage name="phone" class="text-red-500 text-sm mt-1" />
+                        <span v-if="phoneError && phoneMeta.touched" class=" text-sm mt-1">
+                            {{ phoneError }}
+                        </span>
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-ninetea text-white mb-2">Message<span class="text-[#BB83FF]">*</span></label>
-                        <Field
-                            as="textarea"
-                            name="message"
-                            id="message" 
-                            v-model="form.message"
-                            rows="4" 
-                            placeholder="Write your message"
-                            class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none placeholder-gray-400"
-                            :class="validationErrors.message ? 'border border-red-500 focus:border-red-500' : 'border border-transparent focus:border-[#BB83FF]'"
-                        />
-                        <ErrorMessage name="message" class="text-red-500 text-sm mt-1" />
+                        <label for="message" class="block text-sm font-ninetea text-white mb-2">Message</label>
+                        <textarea id="message" :value="message" @input="messageChange" @blur="messageBlur"
+                            @keypress="handleKeyPress" rows="4" placeholder="Write your message"
+                            class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
+                            :class="{ 'border-red-500': messageError && messageMeta.touched }"></textarea>
+                        <span v-if="messageError && messageMeta.touched" class=" text-sm mt-1">{{
+                            messageError }}</span>
                     </div>
+
+                    <div class="flex justify-start mb-4">
+                        <NuxtTurnstile v-model="turnstileToken" @verify="onVerify" @error="onError"
+                            @expire="onExpire" />
+                    </div>
+
                     <div class="flex justify-start">
-                        <NuxtTurnstile v-model="turnstileToken" />
-                    </div>
-                    <div>
-                        <button 
-                            type="submit"
-                            class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg disabled:opacity-50"
-                            :disabled="isSubmitting || !turnstileToken"
-                        >
-                            <span v-if="isSubmitting">Sending...</span>
+                        <button type="submit"
+                            class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg"
+                            :disabled="loading || !turnstileToken">
+                            <span v-if="loading">Sending...</span>
                             <span v-else>Send Message</span>
-                            <Icon v-if="!isSubmitting" name="pixelarticons:arrow-right" class="text-white text-xl -rotate-45" />
+                            <Icon v-if="!loading" name="pixelarticons:arrow-right"
+                                class="text-white text-xl -rotate-45" />
                         </button>
                     </div>
-                    <div v-if="error && !Object.keys(validationErrors).length" class="text-red-500 text-center mt-4">
+                    <div v-if="error" class=" text-center mt-4">
                         {{ error }}
                     </div>
-                    <div v-if="success && !Object.keys(validationErrors).length" class="text-green-500 text-center mt-4">
+                    <div v-if="success" class="text-green-500 text-center mt-4">
                         {{ success }}
                     </div>
                 </form>
             </div>
         </div>
+
     </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-import { onClickOutside } from '@vueuse/core'
-import { Form, Field, ErrorMessage } from 'vee-validate'
+<script setup>
+import axios from 'axios'
+import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
+import { computed, watch, ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
-interface Country {
-    code: string
-    flag: string
-    name: string
-}
-
-interface FormData {
-    name: string
-    email: string
-    phone: string
-    message: string
-}
-
-const form = ref<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+const schema = yup.object({
+    name: yup.string()
+        .required('Name is required')
+        .min(2, 'Name must be at least 2 characters')
+        .test('no-numbers', 'Name cannot contain numbers', value => !/\d/.test(value))
+        .test('no-special-chars', 'Name cannot contain special characters', value => !/[^A-Za-z\s]/.test(value)),
+    email: yup.string().required('Email is required').email('Please enter a valid email'),
+    countryCode: yup.string().required('Country code is required'),
+    phone: yup.string()
+        .required('Phone number is required')
+        .matches(/^\d{10}$/, 'Phone number must be 10 digits'),
+    message: yup.string().required('Message is required').min(10, 'Message must be at least 10 characters')
 })
 
-const isSubmitting = ref(false)
-const error = ref('')
-const success = ref('')
-const isDropdownOpen = ref(false)
-const dropdownRef = ref<HTMLElement | null>(null)
-const turnstileToken = ref('')
+const { handleSubmit, values, errors, resetForm, validate } = useForm({
+    validationSchema: schema,
+    initialValues: {
+        name: '',
+        email: '',
+        phone: '',
+        countryCode: '+91',
+        message: '',
+        subject: 'Contact Form Inquiry'
+    }
+})
 
-const countries: Country[] = [
+const {
+    value: name,
+    errorMessage: nameError,
+    handleBlur: nameBlur,
+    handleChange: nameChange,
+    meta: nameMeta
+} = useField('name')
+
+const {
+    value: email,
+    errorMessage: emailError,
+    handleBlur: emailBlur,
+    handleChange: emailChange,
+    meta: emailMeta
+} = useField('email')
+
+const {
+    value: phone,
+    errorMessage: phoneError,
+    handleBlur: phoneBlur,
+    handleChange: phoneChange,
+    meta: phoneMeta
+} = useField('phone')
+
+const {
+    value: countryCode,
+    errorMessage: countryCodeError,
+    handleBlur: countryCodeBlur,
+    handleChange: countryCodeChange,
+    meta: countryCodeMeta
+} = useField('countryCode')
+
+const {
+    value: message,
+    errorMessage: messageError,
+    handleBlur: messageBlur,
+    handleChange: messageChange,
+    meta: messageMeta
+} = useField('message')
+
+const countries = [
     { code: '+91', flag: 'in', name: 'India' },
     { code: '+1', flag: 'us', name: 'United States' },
     { code: '+44', flag: 'gb', name: 'United Kingdom' },
@@ -201,98 +211,113 @@ const countries: Country[] = [
     { code: '+86', flag: 'cn', name: 'China' }
 ]
 
-const selectedCountry = ref<Country>(countries[0])
+const isDropdownOpen = ref(false)
+const selectedCountry = computed(() => {
+    return countries.find(c => c.code === countryCode.value) || countries[0]
+})
 
-const selectCountry = (country: Country): void => {
-    selectedCountry.value = country
+const selectCountry = (country) => {
+    countryCodeChange(country.code)
     isDropdownOpen.value = false
 }
 
+const dropdownRef = ref(null)
 onClickOutside(dropdownRef, () => {
     isDropdownOpen.value = false
 })
 
-const schema = yup.object({
-  name: yup.string()
-    .required('Name is required')
-    .matches(/^[a-zA-Z\s]*$/, 'Name can only contain letters and spaces')
-    .trim(),
-  email: yup.string().required('Email is required').email('Please enter a valid email address').trim(),
-  phone: yup.string()
-    .required('Phone number is required')
-    .matches(/^\d{7,15}$/, 'Please enter a valid phone number (7-15 digits)')
-    .trim(),
-  message: yup.string().required('Message is required').trim(),
-});
-
-const resetForm = (): void => {
-    form.value = {
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-    }
-    error.value = ''
-    success.value = ''
-    turnstileToken.value = ''
-    // VeeValidate errors are managed by the submission lifecycle and current validation mode.
+const formatName = (value) => {
+    if (!value) return value
+    return value.replace(/[^A-Za-z\s]/g, '')
 }
 
-const handleSubmit = async (values: any): Promise<void> => {
-    // Validation is now handled by VeeValidate before this function is called
+const formatPhoneNumber = (value) => {
+    if (!value) return value
+    return value.replace(/\D/g, '').slice(0, 10)
+}
+
+watch(() => countryCode.value, () => {
+    phone.value = ''
+})
+
+const handleKeyPress = async (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault()
+        const result = await validate()
+        if (result.valid) {
+            onSubmit()
+        }
+    }
+}
+
+const loading = ref(false)
+const error = ref('')
+const success = ref('')
+const turnstileToken = ref('')
+
+const onVerify = (token) => {
+    turnstileToken.value = token
+}
+
+const onError = () => {
+    turnstileToken.value = ''
+}
+
+const onExpire = () => {
+    turnstileToken.value = ''
+}
+
+const onSubmit = handleSubmit(async (values) => {
     if (!turnstileToken.value) {
-        error.value = 'Please complete the Turnstile verification'
+        // This could be a general form error or a specific field error if you add a Turnstile field to your schema
+        submissionStatus.value = { type: 'error', message: 'Please complete the Turnstile verification.' };
         return
     }
-
-    isSubmitting.value = true
+    loading.value = true
     error.value = ''
     success.value = ''
 
     try {
-        // First get CSRF token
+        // First verify the Turnstile token
         const csrfResponse = await fetch('/api/csrf', {
             method: 'GET',
             credentials: 'same-origin'
         })
-        
+
         if (!csrfResponse.ok) {
             throw new Error('Failed to get CSRF token')
         }
 
         const { token } = await csrfResponse.json()
 
-        const response = await fetch('/api/contact', {
-            method: 'POST',
+        // If verification successful, submit the form
+        const response = await axios.post('/api/contact', {
+            name: values.name,
+            email: values.email,
+            subject: values.subject,
+            message: values.message,
+            phone: `${values.countryCode}${values.phone}`,
+            turnstileToken: turnstileToken.value
+        }, {
             headers: {
-                'Content-Type': 'application/json',
                 'X-CSRF-Token': token
             },
-            body: JSON.stringify({
-                name: values.name,
-                email: values.email,
-                phone: `${selectedCountry.value.code}${values.phone}`,
-                message: values.message,
-                turnstileToken: turnstileToken.value
-            }),
             credentials: 'same-origin'
         })
 
-        if (!response.ok) {
-            const errorData = await response.json()
-            throw new Error(errorData.message || 'Failed to send message')
+        if (response.data.message) {
+            success.value = 'Message sent successfully!'
+            resetForm()
+            turnstileToken.value = ''
+        } else {
+            error.value = response.data.error || 'Failed to send message. Please try again.'
         }
-
-        const data = await response.json()
-        success.value = data.message || 'Message sent successfully! We will get back to you soon.'
-        turnstileToken.value = ''
-        resetForm()
-    } catch (err: any) {
-        error.value = err.message || 'Failed to send message. Please try again.'
+    } catch (err) {
+        error.value = err.response?.data?.error || 'An error occurred. Please try again later.'
     } finally {
-        isSubmitting.value = false
+        loading.value = false
     }
-}
+})
 </script>
 
 <style scoped>
@@ -312,22 +337,5 @@ const handleSubmit = async (values: any): Promise<void> => {
 
 .max-h-60::-webkit-scrollbar-thumb:hover {
     background: #4B3A6A;
-}
-
-/* Touch device optimizations */
-@media (hover: none) {
-    .touch-manipulation {
-        -webkit-tap-highlight-color: transparent;
-    }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
 }
 </style>
