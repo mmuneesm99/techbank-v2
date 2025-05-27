@@ -10,7 +10,7 @@
             <div class="grid md:grid-cols-2 gap-8 ">
                 <div class="flex flex-col gap-5 items-start mb-8">
                     <img src="/images/logo-footer.svg" alt="TechBank Logo" width="100%" height="100%"
-                        class="h-10 mb-4" />
+                        class="h-10 w-fit mb-4" />
                     <p class="text-white max-w-xs text-xl font-nyx">Engineering the future</p>
                     <nuxt-link to="/contact" class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</nuxt-link>
                 </div>

@@ -1,0 +1,5 @@
+const index_vue_vue_type_style_index_0_scoped_1c318fbb_lang = ".fade-stagger-enter-active[data-v-1c318fbb],.fade-stagger-leave-active[data-v-1c318fbb]{transition:all .5s ease}.fade-stagger-enter-from[data-v-1c318fbb],.fade-stagger-leave-to[data-v-1c318fbb]{opacity:0;transform:translateY(30px)}@keyframes fade-in-1c318fbb{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-fade-in[data-v-1c318fbb]{animation:fade-in-1c318fbb .8s ease-out forwards}@media (prefers-reduced-motion:reduce){.animate-fade-in[data-v-1c318fbb]{animation:none;opacity:1}.product-card[data-v-1c318fbb]{transition:none}}";
+export {
+  index_vue_vue_type_style_index_0_scoped_1c318fbb_lang as default
+};
+//# sourceMappingURL=index-styles-1.mjs-DV1LO2sd.js.map

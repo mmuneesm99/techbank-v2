@@ -82,7 +82,7 @@
     <!-- Mobile menu -->
     <div 
       ref="mobileMenu"
-      class="md:hidden absolute top-12 right-4"
+      class="md:hidden absolute top-8 right-4"
       :class="{ 'hidden': !isMobileMenuOpen }"
     >
       <div class="relative w-[220px] px-1 px-0 pt-0 pb-0">
@@ -157,7 +157,6 @@ onMounted(() => {
       perspective: 1000,
       rotateX: -15,
       rotateY: 15,
-      boxShadow: '0 0 0 rgba(147, 51, 234, 0)',
       clipPath: 'circle(0% at top right)'
     })
   }
@@ -185,7 +184,6 @@ watch(isMobileMenuOpen, (newValue) => {
       filter: 'blur(0px)',
       rotateX: 0,
       rotateY: 0,
-      boxShadow: '0 0 20px rgba(147, 51, 234, 0.3)',
       clipPath: 'circle(150% at top right)',
       duration: 0.6,
       ease: 'power3.out',
@@ -256,7 +254,7 @@ onMounted(() => {
           scale: 1.02,
           x: 5,
           rotateY: 5,
-          boxShadow: '0 0 15px rgba(147, 51, 234, 0.3)',
+          // boxShadow: '0 0 15px rgba(147, 51, 234, 0.3)',
           duration: 0.2,
           ease: 'power2.out'
         })
@@ -287,7 +285,6 @@ onMounted(() => {
           scale: 1,
           x: 0,
           rotateY: 0,
-          boxShadow: '0 0 10px rgba(147, 51, 234, 0.2)',
           duration: 0.2,
           ease: 'power2.out'
         })

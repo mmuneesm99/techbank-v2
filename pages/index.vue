@@ -1,6 +1,6 @@
 <template>
     <!-- Hero Section -->
-    <div ref="heroRef" class="max-w-7xl mx-auto px-4 pb-8 md:pb-16 sm:px-6 lg:px-8">
+    <div ref="heroRef" class="max-w-7xl mx-auto px-4 pb-0 md:pb-0 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden">
             <img src="/images/hero-bg.svg" alt="TechBank Hero Background - Modern Digital Finance Platform"
                 width="100%" height="100%" class="hidden md:block w-full h-auto object-cover rounded-lg shadow-lg"
@@ -49,8 +49,8 @@
     <div
         class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 items-center grid-cols-1 gap-8 md:gap-20 lg:px-8 py-16 md:py-24 relative overflow-hidden">
         <div class="order-2 md:order-1">
-            <img src="/images/about-gif.avif" alt="TechBank Blockchain Technology Demonstration"
-                class="max-w-[300px] sm:max-w-[350px] md:max-w-[400px] h-auto rounded-lg shadow-lg mx-auto" loading="lazy" />
+            <img src="/images/about-bg.avifs" alt="TechBank Blockchain Technology Demonstration"
+                class="max-w-[300px] w-full sm:max-w-[350px] md:max-w-[400px] h-auto rounded-lg shadow-lg mx-auto" loading="lazy" />
         </div>
         <div class="flex text-block flex-col md:items-start items-center order-1 md:order-2">
             <h2 ref="aboutRef" data-final-text="About"

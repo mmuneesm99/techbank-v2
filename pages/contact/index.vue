@@ -27,7 +27,14 @@
             <div class="w-full md:p-8">
                 <p class="text-[#BB83FF] text-sm font-ninetea mb-2 tracking-widest">BUILD THE FUTURE WITH US</p>
                 <h2 class="text-3xl md:text-4xl font-nyx text-white mb-8 tracking-wide">CONTACT US</h2>
-                <Form @submit="handleSubmit" :validation-schema="schema" class="space-y-6" v-slot="{ errors: validationErrors }">
+                <Form
+                    @submit="handleSubmit"
+                    :validation-schema="schema"
+                    :validate-on-change="false"
+                    :validate-on-blur="false"
+                    :validate-on-input="false"
+                    class="space-y-6"
+                    v-slot="{ errors: validationErrors }">
                     <div>
                         <label for="name" class="block text-sm font-ninetea text-white mb-2">Name<span class="text-[#BB83FF]">*</span></label>
                         <Field
@@ -228,7 +235,7 @@ const resetForm = (): void => {
     error.value = ''
     success.value = ''
     turnstileToken.value = ''
-    // VeeValidate errors will clear automatically as form values change
+    // VeeValidate errors are managed by the submission lifecycle and current validation mode.
 }
 
 const handleSubmit = async (values: any): Promise<void> => {
@@ -278,6 +285,7 @@ const handleSubmit = async (values: any): Promise<void> => {
 
         const data = await response.json()
         success.value = data.message || 'Message sent successfully! We will get back to you soon.'
+        turnstileToken.value = ''
         resetForm()
     } catch (err: any) {
         error.value = err.message || 'Failed to send message. Please try again.'

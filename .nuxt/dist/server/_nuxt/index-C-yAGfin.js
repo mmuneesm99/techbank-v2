@@ -1,0 +1,167 @@
+import __nuxt_component_1 from "./index-w3N2GCty.js";
+import { _ as __nuxt_component_0 } from "./nuxt-link-DW05dJug.js";
+import { mergeProps, withCtx, createTextVNode, createVNode, useSSRContext } from "vue";
+import { ssrRenderAttrs, ssrRenderStyle, ssrRenderAttr, ssrRenderComponent, ssrInterpolate, ssrRenderList } from "vue/server-renderer";
+import { publicAssetsURL } from "#internal/nuxt/paths";
+import { _ as _imports_0$1 } from "./virtual_public-M4F6_fSz.js";
+import { _ as _export_sfc } from "../server.mjs";
+import "@iconify/vue";
+import "@iconify/utils/lib/css/icon";
+import "D:/techbank-v2/node_modules/perfect-debounce/dist/index.mjs";
+import "D:/techbank-v2/node_modules/ufo/dist/index.mjs";
+import "ofetch";
+import "D:/techbank-v2/node_modules/hookable/dist/index.mjs";
+import "D:/techbank-v2/node_modules/unctx/dist/index.mjs";
+import "D:/techbank-v2/node_modules/h3/dist/index.mjs";
+import "vue-router";
+import "D:/techbank-v2/node_modules/radix3/dist/index.mjs";
+import "D:/techbank-v2/node_modules/defu/dist/defu.mjs";
+import "D:/techbank-v2/node_modules/klona/dist/index.mjs";
+import "D:/techbank-v2/node_modules/@unhead/vue/dist/index.mjs";
+import "@unhead/addons";
+import "unhead/plugins";
+import "scule";
+import "@unhead/schema-org/vue";
+const _imports_0 = publicAssetsURL("/images/animatedstep.webp");
+const _imports_1 = publicAssetsURL("/images/career-badge.webp");
+const _sfc_main = {
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const jobs = [
+      {
+        title: "Blockchain Lead",
+        openings: "1",
+        experience: "5",
+        location: "Kochi",
+        time: "Full Time",
+        isNew: true,
+        description: "We're on the hunt for a Blockchain Lead Developer who's ready to push boundaries! 🔗🚀 If you're all about building cutting-edge decentralized solutions and want to be part of an innovative, fun team, we'd love to hear from you. Hit us up!",
+        responsibilities: [],
+        requirements: [
+          "Experience : 5+ years in Blockchain and Node.js development.",
+          "Required Skills : Web3, Solidity, Node.js, EVM-based chains.",
+          "Knowledge in : React / Vue, Golang.",
+          "Experience with DeFi projects - Uniswap Protocols."
+        ]
+      },
+      {
+        title: "Content Writer",
+        openings: "1",
+        experience: "3",
+        location: "Kochi",
+        time: "Full Time",
+        isNew: true,
+        description: "We're looking for a Content Writer who can craft engaging and high-quality content! ✍️✨ If you have a knack for research, creating compelling articles, scripts, and social media posts—and anchoring skills as a bonus—we want you on our team! 🚀 Hit us up!",
+        responsibilities: [],
+        requirements: [
+          "Write engaging and high-quality content.",
+          "Research and create compelling articles, scripts, and social media posts.",
+          "Knowledge of anchoring skills is an added advantage."
+        ]
+      },
+      {
+        title: "Content Creator",
+        openings: "1",
+        experience: "3",
+        location: "Kochi",
+        time: "Full Time",
+        isNew: true,
+        description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
+        responsibilities: [],
+        requirements: [
+          "Plan, Script, Present high quality videos.",
+          "Confidently Present on camera.",
+          "Handle English & Malayalam Presentation Videos."
+        ]
+      },
+      {
+        title: "Jr. Graphic Designer",
+        openings: "1",
+        experience: "0-2",
+        location: "Kochi",
+        time: "Full Time",
+        isNew: true,
+        description: "We're on the lookout for a Content Creator & Presenter who can plan, script, and deliver high-quality videos! 🎥✨ If you're confident on camera and can present fluently in English & Malayalam, we want you on our team. 🚀 Let's create something amazing—hit us up!",
+        responsibilities: [],
+        requirements: [
+          "Proficiency in Adobe Photoshop, Illustrator, and basic knowledge of After Effects or Premiere Pro is a plus.",
+          "Basic understanding of design principles, color theory, and typography.",
+          "Ability to take direction and work collaboratively in a fast-paced environment.",
+          "Strong attention to detail and creativity.",
+          "Portfolio showcasing previous work (even academic or freelance projects)."
+        ]
+      }
+    ];
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_Icon = __nuxt_component_1;
+      const _component_NuxtLink = __nuxt_component_0;
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:px-8" }, _attrs))} data-v-7dab6dfa><div class="text-center" data-v-7dab6dfa><p class="text-[16px] text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl animate-fade-up" data-v-7dab6dfa>BUILD THE FUTURE WITH US</p><h2 class="text-[40px] md:text-[86px] text-[#FFFFFF] mx-auto -mt-2 font-nyx tracking-wider" data-v-7dab6dfa> Careers </h2></div><div class="flex items-center justify-center -mt-5 relative overflow-x-hidden w-full md:px-10 pl-10 animate-fade-up" style="${ssrRenderStyle({ "animation-delay": "0.2s" })}" data-v-7dab6dfa><img${ssrRenderAttr("src", _imports_0)} alt="Join with us" class="w-[400px] md:w-full max-w-[600px] md:ml-[200px] ml-[150px]" data-v-7dab6dfa></div><div class="md:bg-gradient-to-r md:from-[#E476FF82] md:rounded-2xl md:via-[#DD56FF] md:to-[#FFFFFF] md:p-[1px] md:ml-10 md:-mt-2 -mt-20 relative animate-fade-up" style="${ssrRenderStyle({ "animation-delay": "0.4s" })}" data-v-7dab6dfa><div class="bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0 hover:shadow-[#BB83FF]/20 transition-all duration-300" data-v-7dab6dfa><div class="md:absolute md:-left-10" data-v-7dab6dfa><img${ssrRenderAttr("src", _imports_1)} class="md:w-[130px] -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" data-v-7dab6dfa></div><div class="flex flex-col gap-2 md:pl-20" data-v-7dab6dfa><span class="text-white text-lg md:text-xl font-ninetea" data-v-7dab6dfa>BUILD THE FUTURE WITH US</span><p class="text-sm font-ninetea text-[#B3B3B3]" data-v-7dab6dfa>At TechBank, we believe in crafting tech that disrupts. From blockchain protocols to immersive virtual experiences, we&#39;re pushing the boundaries of what&#39;s possible—and we want bold thinkers, doers, and dreamers to join us.</p></div><div data-v-7dab6dfa><button class="bg-button-gradient font-ninetea text-white pl-6 pr-2 py-2 whitespace-nowrap flex items-center gap-2 rounded-full hover:bg-gray-700 transform hover:scale-105 transition-all duration-500" data-v-7dab6dfa> Apply Now <span class="bg-white h-8 w-8 flex items-center justify-center ml-0 rounded-full" data-v-7dab6dfa>`);
+      _push(ssrRenderComponent(_component_Icon, {
+        name: "mynaui:arrow-long-up-right",
+        class: "text-[#8501A6] font-bold"
+      }, null, _parent));
+      _push(`</span></button></div></div></div><div class="py-10 openings" data-v-7dab6dfa><div class="py-10 flex items-center justify-between animate-fade-up" data-v-7dab6dfa><h3 class="text-white text-2xl font-nyx" data-v-7dab6dfa>Open Positions</h3><span class="text-2xl font-nyx text-[#BB83FF]" data-v-7dab6dfa>${ssrInterpolate(jobs.length.toString().padStart(2, "0"))}</span></div><div class="grid grid-cols-1 gap-6" data-v-7dab6dfa><!--[-->`);
+      ssrRenderList(jobs, (job, idx) => {
+        _push(`<div class="relative flex flex-col md:flex-row items-center md:items-stretch justify-between bg-[#181818] rounded-2xl shadow-lg animate-fade-up transition-all duration-300" style="${ssrRenderStyle({ animationDelay: `${0.8 + idx * 0.1}s` })}" data-v-7dab6dfa><img${ssrRenderAttr("src", _imports_0$1)} class="w-full h-full absolute top-0 left-0 object-cover" alt="job" data-v-7dab6dfa><div class="flex flex-col md:flex-row md:items-center w-full px-4 md:px-8 py-4 md:py-6 relative" data-v-7dab6dfa><div class="flex items-center gap-3 mb-2 md:mb-0" data-v-7dab6dfa>`);
+        if (job.isNew) {
+          _push(`<span class="bg-green-600 text-white text-xs absolute -top-3 left-2 px-3 py-1 rounded-full animate-pulse" data-v-7dab6dfa>NEW</span>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`<span class="text-white font-bold text-base md:text-xl font-ninetea" data-v-7dab6dfa>${ssrInterpolate(job.title)}</span></div><div class="flex flex-wrap gap-1 md:ml-6" data-v-7dab6dfa><span class="flex items-center gap-1 bg-[#120033] text-white text-xs px-1 py-1 rounded-full font-ninetea hover:bg-[#1a004d] transition-colors duration-300" data-v-7dab6dfa>`);
+        _push(ssrRenderComponent(_component_Icon, {
+          name: "mingcute:flash-fill",
+          class: "text-base"
+        }, null, _parent));
+        _push(` ${ssrInterpolate(job.experience)}+ Years Experience </span><span class="flex items-center gap-1 bg-[#000000] text-white text-xs px-1 py-1 rounded-full font-ninetea hover:bg-[#1a1a1a] transition-colors duration-300" data-v-7dab6dfa>`);
+        _push(ssrRenderComponent(_component_Icon, {
+          name: "mdi:map-marker",
+          class: "text-base"
+        }, null, _parent));
+        _push(` ${ssrInterpolate(job.location)}</span><span class="flex items-center gap-1 bg-[#000000] text-white text-xs px-1 py-1 rounded-full font-ninetea hover:bg-[#1a1a1a] transition-colors duration-300" data-v-7dab6dfa>`);
+        _push(ssrRenderComponent(_component_Icon, {
+          name: "mdi:clock-outline",
+          class: "text-base"
+        }, null, _parent));
+        _push(` ${ssrInterpolate(job.time)}</span></div></div><div class="flex w-full md:justify-end px-4 md:px-8 py-2 md:py-6 -mt-2 md:mt-0 relative" data-v-7dab6dfa>`);
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: `/careers/${idx + 1}`,
+          class: "bg-button-gradient text-white font-ninetea px-8 py-2 rounded-full flex items-center font-thin gap-2 whitespace-nowrap transition-all duration-500 text-base hover:scale-105"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(` View Details `);
+              _push2(ssrRenderComponent(_component_Icon, {
+                name: "pixelarticons:arrow-right",
+                class: "text-white text-2xl -rotate-45"
+              }, null, _parent2, _scopeId));
+            } else {
+              return [
+                createTextVNode(" View Details "),
+                createVNode(_component_Icon, {
+                  name: "pixelarticons:arrow-right",
+                  class: "text-white text-2xl -rotate-45"
+                })
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+        _push(`</div></div>`);
+      });
+      _push(`<!--]--></div></div></div>`);
+    };
+  }
+};
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/careers/index.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-7dab6dfa"]]);
+export {
+  index as default
+};
+//# sourceMappingURL=index-C-yAGfin.js.map
