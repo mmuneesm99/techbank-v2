@@ -7,16 +7,16 @@
             </h2>
         </div>
         <div class="flex items-center justify-center -mt-5 relative overflow-x-hidden w-full md:px-10 pl-10 animate-fade-up" style="animation-delay: 0.2s">
-            <img src="/images/animatedstep.webp" alt="Join with us"
+            <img loading="lazy" src="/images/animatedstep.webp" alt="Join with us"
                 class="w-[400px] md:w-full max-w-[600px] md:ml-[200px] ml-[150px]"/>
         </div>
         <div
             class="md:bg-gradient-to-r md:from-[#E476FF82] md:rounded-2xl md:via-[#DD56FF] md:to-[#FFFFFF] md:p-[1px] md:ml-10 md:-mt-2 -mt-20 relative animate-fade-up" style="animation-delay: 0.4s">
             <div
-                class="bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0 hover:shadow-[#BB83FF]/20 transition-all duration-300">
+                class="bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0">
                 <div class="md:absolute md:-left-10">
-                    <img src="/images/career-badge.webp"
-                        class="md:w-[130px] -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" />
+                    <img loading="lazy" src="/images/career-badge.webp"
+                        class="md:w-[130px] w-[100px] -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" />
                 </div>
                 <div class="flex flex-col gap-2 md:pl-20">
                     <span class="text-white text-lg md:text-xl font-ninetea">BUILD THE FUTURE WITH US</span>
@@ -46,7 +46,7 @@
                 <div v-for="(job, idx) in jobs" :key="idx"
                     class="relative flex flex-col md:flex-row items-center md:items-stretch justify-between bg-[#181818] rounded-2xl shadow-lg animate-fade-up transition-all duration-300"
                     :style="{ animationDelay: `${0.8 + (idx * 0.1)}s` }">
-                    <img src="/images/product-bg-pattern.webp"
+                    <img loading="lazy" src="/images/product-bg-pattern.webp"
                         class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
                     <div class="flex flex-col md:flex-row md:items-center w-full px-4 md:px-8 py-4 md:py-6 relative">
                         <div class="flex items-center gap-3 mb-2 md:mb-0">

@@ -34,7 +34,7 @@ onMounted(() => {
       <ClientOnly>
         <swiper-container ref="containerRef" :init="true">
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
-            <img src="/images/product-card.webp" alt="DWallet product card background" width="100%" height="100%"
+            <img loading="lazy" src="/images/product-card.webp" alt="DWallet product card background" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
             <div class="absolute h-full inset-0 p-1 z-10 text-white">
               <img src="/images/dwallethome.webp" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"

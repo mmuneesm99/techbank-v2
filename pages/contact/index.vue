@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex flex-col items-center">
-                <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
+                <img loading="lazy" src="/images/product-bg-pattern.webp" alt="Contact Us" width="100%" height="100%"
                     class="w-full h-full absolute object-cover" />
                 <div
                     class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8]  to-transparent">
@@ -27,7 +27,7 @@
                                 class="">*</span></label>
                         <input type="text" id="name" :value="name"
                             @input="(e) => nameChange(formatName(e.target.value))" @blur="nameBlur"
-                            @keypress="handleKeyPress" placeholder="Enter Your Name (letters only)"
+                            @keypress="handleKeyPress" placeholder="Enter Your Name"
                             class="w-full px-4 py-3 bg-[#1A1A1A]  rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
                             :class="{ 'border-red-500': nameError && nameMeta.touched }">
                         <span v-if="nameError && nameMeta.touched" class=" text-sm mt-1">{{ nameError
@@ -83,7 +83,7 @@
                             </div>
                             <input type="tel" id="phone" :value="phone"
                                 @input="(e) => phoneChange(formatPhoneNumber(e.target.value))" @blur="phoneBlur"
-                                @keypress="handleKeyPress" placeholder="Enter 10 digits"
+                                @keypress="handleKeyPress" placeholder="Enter Phone Number"
                                 class="w-full px-4 py-3 bg-[#1A1A1A] rounded-lg text-white focus:outline-none focus:border-purple-500 placeholder-gray-400"
                                 :class="{ 'border-red-500': phoneError && phoneMeta.touched }">
                         </div>

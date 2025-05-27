@@ -1,23 +1,25 @@
 <template>
     <footer class="py-8 relative overflow-hidden bg-[#010101]">
-        
-        <img src="/images/mobile-footer.webp" alt="TechBank Footer" width="100%" height="100%"
+    <div class="opacity-0 absolute bottom-0 right-0 z-10">Developed by <a href="https://munees.co.in" class="underline">munees</a></div>
+
+        <img loading="lazy" src="/images/mobile-footer.webp" alt="TechBank Footer" width="100%" height="100%"
             class="w-full absolute h-auto object-contain  bottom-0 shadow-lg md:hidden block" />
-        <img src="/images/footer-bg.webp" alt="TechBank Footer" width="100%" height="100%"
+        <img loading="lazy" src="/images/footer-bg.webp" alt="TechBank Footer" width="100%" height="100%"
             class="w-full absolute h-auto object-contain  bottom-0 hidden md:block shadow-lg" />
         <div class="container relative mx-auto max-w-7xl px-4 py-10">
 
             <div class="grid md:grid-cols-2 gap-8 ">
                 <div class="flex flex-col gap-5 items-start mb-8">
-                    <img src="/images/logo-footer.svg" alt="TechBank Logo" width="100%" height="100%"
+                    <img loading="lazy" src="/images/logo-footer.svg" alt="TechBank Logo" width="100%" height="100%"
                         class="h-10 w-fit mb-4" />
                     <p class="text-white max-w-xs text-xl font-nyx">Engineering the future</p>
-                    <nuxt-link to="/contact" class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</nuxt-link>
+                    <nuxt-link to="/contact"
+                        class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</nuxt-link>
                 </div>
                 <div>
 
                     <div class="grid grid-cols-2 gap-8 relative md:mt-8 ">
-                        <div class="flex flex-col gap-4 justify-end">
+                        <div class="flex flex-col gap-4 md:justify-end">
                             <ul class="flex flex-col gap-2 font-ninetea">
                                 <li v-for="item in navigationItems" :key="item.name">
                                     <nuxt-link :to="item.path" class="text-white hover:text-white">
@@ -27,18 +29,20 @@
                             </ul>
                         </div>
                         <div>
-                            <ul class="text-white flex flex-col md:items-end items-left text-left gap-2 font-ninetea">
+                            <ul class="text-white flex flex-col md:items-end text-end font-thin items-left text-left gap-2 font-ninetea">
                                 <li class="underline">Offices</li>
-                                <li>Infopark</li>
-                                <li>Kochi - Kerala</li>
+                                <li class="text-sm">Techbank, 3rd Floor, Phase 2 Unit No III D
+                                    Carnival Infopark,Infopark Road KakkanadErnakulam Kerala 682042</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-between flex-col md:divide-y-0 divide-y divide-[#FBFDFF26] md:flex-row items-center text-white">
+            <div
+                class="flex justify-between flex-col md:divide-y-0 divide-y divide-[#FBFDFF26] md:flex-row items-center text-white">
                 <div class=" flex items-center justify-center md:justify-start gap-5 w-full">
-                    <a href="https://linkedin.com/company/techbank" target="_blank" aria-label="Visit our LinkedIn page">
+                    <a href="https://linkedin.com/company/techbank" target="_blank"
+                        aria-label="Visit our LinkedIn page">
                         <Icon name="ph:linkedin-logo" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
                     <a href="https://instagram.com/techbank" target="_blank" aria-label="Visit our Instagram page">
@@ -52,11 +56,11 @@
                     </a>
                 </div>
                 <div class="hidden text-center md:block w-full flex justify-center">
-                    <p >&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
+                    <p>&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
                 </div>
                 <div class="flex items-center gap-5 md:justify-end justify-center w-full -mt-5 md:mt-0 py-3 md:py-0">
                     <nuxt-link to="/privacy-policy" class="text-white">Privacy Policy</nuxt-link>
-                    <nuxt-link to="/terms-and-conditions" class="text-white">Terms & Conditions</nuxt-link>
+                    <a href="/pdfs/tb-terms.pdf" target="_blank" class="text-white">Terms & Conditions</a>
                 </div>
                 <p class="block md:hidden pt-3">&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
 

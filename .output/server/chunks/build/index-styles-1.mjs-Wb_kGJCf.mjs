@@ -1,0 +1,2 @@
+const a=".animate-fade-in[data-v-7c25a536]{animation:fadeIn-7c25a536 .8s ease-out}.animate-fade-up[data-v-7c25a536]{animation:fadeUp-7c25a536 .8s ease-out forwards;opacity:0}@keyframes fadeIn-7c25a536{0%{opacity:0}to{opacity:1}}@keyframes fadeUp-7c25a536{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}";export{a as i};
+//# sourceMappingURL=index-styles-1.mjs-Wb_kGJCf.mjs.map

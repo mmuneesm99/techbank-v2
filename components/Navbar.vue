@@ -8,7 +8,7 @@
         <!-- Logo and Brand -->
         <div class="flex items-center min-w-[180px]">
           <NuxtLink to="/" class="flex items-center">
-            <img 
+            <img loading="lazy" 
               src="/images/logo.svg" 
               alt="TechBank Logo" 
               width="40" 
@@ -87,7 +87,7 @@
     >
       <div class="relative w-[220px] px-1 px-0 pt-0 pb-0">
         <div class="absolute inset-0 w-full h-full z-0">
-          <img src="/images/mob-nav-bg.svg" alt="Mobile Nav BG" class="w-full h-full object-contain" />
+          <img loading="lazy" src="/images/mob-nav-bg.svg" alt="Mobile Nav BG" class="w-full h-full object-contain" />
         </div>
         <nav ref="mobileNavLinks" class="relative z-10 flex flex-col gap-2 px-3 py-10">
           <NuxtLink 

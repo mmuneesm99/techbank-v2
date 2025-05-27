@@ -21,11 +21,12 @@
             <div v-for="(member, index) in team" :key="member.id"
                 class="relative overflow-hidden h-fit w-full flex flex-col items-center p-6 animate-fade-up"
                 :style="{ animationDelay: `${index * 0.1}s` }">
-                <img src="/images/team-card.webp" alt="TechBank" width="100%" height="100%"
+                <img loading="lazy" src="/images/team-card.webp" alt="TechBank" width="100%" height="100%"
                     class="w-full h-full absolute top-0 left-0" />
-                <div class="relative text-center h-full w-full group">
-                    <img :src="member.photo" :alt="member.name" class="object-cover mb-2  transform transition-transform duration-300 group-hover:scale-105" />
-                    <img src="/images/badge.webp" alt="TechBank Badge" width="100%" height="100%"
+                    <div class="relative mt-5 text-center h-full w-full group">
+                    <img src="/images/paper-texture.png" class="absolute top-0  left-0 z-10 mix-blend-multiply w-full h-full" alt="">
+                    <img loading="lazy" :src="member.photo" :alt="member.name" class="object-cover mb-2 transform transition-transform duration-300 group-hover:scale-[102%]" />
+                    <img loading="lazy" src="/images/badge.webp" alt="TechBank Badge" width="100%" height="100%"
                         class="absolute md:bottom-[80px] bottom-[50px] md:w-[80px] w-[50px] -right-4 -rotate-12 group-hover:rotate-0 transition-all duration-300 hover:scale-110" />
                     <div class="absolute bottom-0 bg-gradient-to-t from-[#000] to-transparent left-0 w-full md:px-4 transform transition-transform duration-300">
                         <h3 class="md:text-xl text-[12px] md:tracking-wider text-white leading-none font-nyx">{{ member.name }}</h3>
@@ -37,10 +38,10 @@
         <div
             class="md:bg-gradient-to-r md:from-[#E476FF82] md:rounded-2xl md:via-[#DD56FF] md:to-[#FFFFFF] md:p-[1px] md:ml-10 mt-20 relative animate-fade-up" style="animation-delay: 0.4s">
             <div
-                class="bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0 hover:shadow-[#BB83FF]/20 transition-all duration-300">
+                class="md:bg-[#010101] flex flex-col md:flex-row md:items-center rounded-2xl relative shadow-lg md:p-4 gap-5 md:gap-0  transition-all duration-300">
                 <div class="md:absolute md:-left-10">
-                    <img src="/images/team-footer-badge.webp"
-                        class="md:w-[130px]  -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" />
+                    <img loading="lazy" src="/images/team-footer-badge.webp"
+                        class="md:w-[130px] w-[100px] -rotate-12 hover:rotate-12 transition-all duration-1000" alt="joinwithus" />
                 </div>
                 <div class="flex flex-col gap-2 md:pl-20">
                     <span class="text-white text-lg md:text-xl font-ninetea">BUILD THE FUTURE WITH US</span>
@@ -51,7 +52,7 @@
                 </div>
                 <div>
                     <nuxt-link to="/careers"
-                        class="bg-button-gradient font-ninetea text-white pl-6 pr-2 py-2 whitespace-nowrap flex items-center gap-2 rounded-full hover:bg-gray-700 transform hover:scale-105 transition-all duration-500">
+                        class="bg-button-gradient w-fit font-ninetea text-white pl-6 pr-2 py-2 whitespace-nowrap flex items-center gap-2 rounded-full">
                         Apply Now
                         <span class="bg-white h-8 w-8 flex items-center justify-center ml-0 rounded-full">
                             <Icon name="mynaui:arrow-long-up-right" class="text-[#8501A6] font-bold" />

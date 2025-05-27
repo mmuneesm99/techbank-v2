@@ -387,12 +387,12 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import("./_nuxt/index-DMsWrUZ_.js")
+    component: () => import("./_nuxt/index-C3B3KSCT.js")
   },
   {
     name: "team",
     path: "/team",
-    component: () => import("./_nuxt/index-Czu8p0bb.js")
+    component: () => import("./_nuxt/index-C5sSy0x7.js")
   },
   {
     name: "blogs",
@@ -402,37 +402,37 @@ const _routes = [
   {
     name: "careers-id",
     path: "/careers/:id()",
-    component: () => import("./_nuxt/_id_-DH1ak_NA.js")
+    component: () => import("./_nuxt/_id_-C_afHc9i.js")
   },
   {
     name: "careers",
     path: "/careers",
-    component: () => import("./_nuxt/index-DeZyvip1.js")
+    component: () => import("./_nuxt/index-XrpcXk3W.js")
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import("./_nuxt/index-DQEXX4zy.js")
+    component: () => import("./_nuxt/index-TaGWz36m.js")
   },
   {
     name: "products",
     path: "/products",
-    component: () => import("./_nuxt/index-DALkv14f.js")
+    component: () => import("./_nuxt/index-BuAwXG_7.js")
   },
   {
     name: "privacy-policy",
     path: "/privacy-policy",
-    component: () => import("./_nuxt/index-Bj6fhtHE.js")
+    component: () => import("./_nuxt/index-CbUW7fgK.js")
   },
   {
     name: "products-dbank",
     path: "/products/dbank",
-    component: () => import("./_nuxt/index-wErkNliK.js")
+    component: () => import("./_nuxt/index-Bu3nZUKX.js")
   },
   {
     name: "products-dwallet",
     path: "/products/dwallet",
-    component: () => import("./_nuxt/index-Gtd7RGSv.js")
+    component: () => import("./_nuxt/index-C40w-nry.js")
   },
   {
     name: "terms-and-conditions",
@@ -1107,7 +1107,7 @@ const revive_payload_server_MVtmlZaQpj6ApFmshWfUWl5PehCebzaBf2NuRMiIbms = /* @__
     }
   }
 });
-const LazyIcon = defineAsyncComponent(() => import("./_nuxt/index-BUWtqNZ6.js").then((r) => r["default"] || r.default || r));
+const LazyIcon = defineAsyncComponent(() => import("./_nuxt/index-w3N2GCty.js").then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["Icon", LazyIcon]
 ];
@@ -1716,7 +1716,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     ref(true);
     return (_ctx, _push, _parent, _attrs) => {
       if (unref(isLoading)) {
-        _push(`<div${ssrRenderAttrs(mergeProps({ class: "fixed inset-0 z-50 flex items-center justify-center bg-gray-900" }, _attrs))} data-v-a147afad><div class="scanline" data-v-a147afad></div><div class="noise" data-v-a147afad></div><div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10" data-v-a147afad><div class="relative overflow-hidden" data-v-a147afad><img${ssrRenderAttr("src", _imports_0)} alt="TechBank Logo" width="100%" height="100%" class="w-full h-auto object-cover" data-v-a147afad><div class="absolute w-full h-full flex flex-col items-center justify-center bottom-0 rounded-lg py-6 sm:py-10" data-v-a147afad><div class="w-full max-w-[280px] sm:max-w-sm" data-v-a147afad><h3 class="text-base sm:text-xl text-[#A4A4A4] text-center mb-4 relative font-nyx tracking-widest" data-v-a147afad> Preparing Your Tech Experience...</h3><div class="w-full flex items-center justify-center" data-v-a147afad><img${ssrRenderAttr("src", _imports_1)} alt="TechBank Animation" class="w-[80px] sm:w-[100px] h-auto object-cover transition-all duration-300" data-v-a147afad></div></div><p class="mt-2 absolute bottom-8 sm:bottom-16 left-4 sm:left-10 text-5xl sm:text-8xl font-bold text-[#A4A4A4] font-nyx" data-v-a147afad><span class="glitch-text" data-v-a147afad>${ssrInterpolate(unref(loadingPercentage))}</span></p></div></div></div></div>`);
+        _push(`<div${ssrRenderAttrs(mergeProps({ class: "fixed inset-0 z-50 flex items-center justify-center bg-gray-900" }, _attrs))} data-v-8be0e102><div class="scanline" data-v-8be0e102></div><div class="noise" data-v-8be0e102></div><div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10" data-v-8be0e102><div class="relative overflow-hidden" data-v-8be0e102><img loading="lazy"${ssrRenderAttr("src", _imports_0)} alt="TechBank Logo" width="100%" height="100%" class="w-full h-auto object-cover" data-v-8be0e102><div class="absolute w-full h-full flex flex-col items-center justify-center bottom-0 rounded-lg py-6 sm:py-10" data-v-8be0e102><div class="w-full max-w-[280px] sm:max-w-sm" data-v-8be0e102><h3 class="text-base sm:text-xl text-[#A4A4A4] text-center mb-4 relative font-nyx tracking-widest" data-v-8be0e102> Preparing Your Tech Experience...</h3><div class="w-full flex items-center justify-center" data-v-8be0e102><img loading="lazy"${ssrRenderAttr("src", _imports_1)} alt="TechBank Animation" class="w-[80px] sm:w-[100px] h-auto object-cover transition-all duration-300" data-v-8be0e102></div></div><p class="mt-2 absolute bottom-8 sm:bottom-16 left-4 sm:left-10 text-5xl sm:text-8xl font-bold text-[#A4A4A4] font-nyx" data-v-8be0e102><span class="glitch-text" data-v-8be0e102>${ssrInterpolate(unref(loadingPercentage))}</span></p></div></div></div></div>`);
       } else {
         _push(`<!---->`);
       }
@@ -1736,9 +1736,9 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/PageLoader.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-a147afad"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-8be0e102"]]);
 const layouts = {
-  default: defineAsyncComponent(() => import("./_nuxt/default-C1rM2gt0.js").then((m) => m.default || m))
+  default: defineAsyncComponent(() => import("./_nuxt/default-CK5ZHTSY.js").then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -2024,7 +2024,7 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import("./_nuxt/error-404-BB_6P4ge.js"));
+    const _Error404 = defineAsyncComponent(() => import("./_nuxt/error-404-DyEAvjXr.js"));
     const _Error = defineAsyncComponent(() => import("./_nuxt/error-500-BItv-AoF.js"));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
@@ -2109,16 +2109,15 @@ const entry$1 = (ssrContext) => entry(ssrContext);
 export {
   _export_sfc as _,
   __nuxt_component_0$1 as a,
-  useRequestEvent as b,
-  useNuxtApp as c,
-  useRuntimeConfig as d,
+  useNuxtApp as b,
+  useRuntimeConfig as c,
+  useRouter as d,
   entry$1 as default,
-  useRouter as e,
-  nuxtLinkDefaults as f,
-  asyncDataDefaults as g,
-  createError as h,
+  nuxtLinkDefaults as e,
+  asyncDataDefaults as f,
+  createError as g,
+  useAppConfig as h,
   injectHead as i,
-  useAppConfig as j,
   navigateTo as n,
   resolveRouteObject as r,
   useHead as u

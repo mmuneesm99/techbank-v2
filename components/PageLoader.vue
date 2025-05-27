@@ -5,7 +5,7 @@
       <div class="noise"></div>
       <div ref="heroRef" class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="relative overflow-hidden">
-          <img src="/images/loader-bg.svg" alt="TechBank Logo" width="100%" height="100%"
+          <img loading="lazy" src="/images/loader-bg.svg" alt="TechBank Logo" width="100%" height="100%"
             class="w-full h-auto object-cover" />
           <div class="absolute w-full h-full flex flex-col items-center justify-center bottom-0 rounded-lg py-6 sm:py-10">
             <div class="w-full max-w-[280px] sm:max-w-sm">
@@ -13,7 +13,7 @@
                 class="text-base sm:text-xl text-[#A4A4A4] text-center mb-4 relative font-nyx tracking-widest">
                 Preparing Your Tech Experience...</h3>
               <div class="w-full flex items-center justify-center">
-                <img ref="compRef" src="/images/loader.gif" alt="TechBank Animation"
+                <img loading="lazy" ref="compRef" src="/images/loader.gif" alt="TechBank Animation"
                   class="w-[80px] sm:w-[100px] h-auto object-cover transition-all duration-300" />
               </div>
             </div>

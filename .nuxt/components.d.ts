@@ -15,7 +15,6 @@ interface _GlobalComponents {
       'BlobVideo': typeof import("../components/BlobVideo.vue")['default']
     'BlogSwiper': typeof import("../components/BlogSwiper.vue")['default']
     'ConnectedBrandsSwiper': typeof import("../components/ConnectedBrandsSwiper.vue")['default']
-    'ContactForm': typeof import("../components/ContactForm.vue")['default']
     'DbankReviews': typeof import("../components/DbankReviews.vue")['default']
     'DrawerModal': typeof import("../components/DrawerModal.vue")['default']
     'Footer': typeof import("../components/Footer.vue")['default']
@@ -89,7 +88,6 @@ interface _GlobalComponents {
       'LazyBlobVideo': LazyComponent<typeof import("../components/BlobVideo.vue")['default']>
     'LazyBlogSwiper': LazyComponent<typeof import("../components/BlogSwiper.vue")['default']>
     'LazyConnectedBrandsSwiper': LazyComponent<typeof import("../components/ConnectedBrandsSwiper.vue")['default']>
-    'LazyContactForm': LazyComponent<typeof import("../components/ContactForm.vue")['default']>
     'LazyDbankReviews': LazyComponent<typeof import("../components/DbankReviews.vue")['default']>
     'LazyDrawerModal': LazyComponent<typeof import("../components/DrawerModal.vue")['default']>
     'LazyFooter': LazyComponent<typeof import("../components/Footer.vue")['default']>
@@ -169,7 +167,6 @@ declare module 'vue' {
 export const BlobVideo: typeof import("../components/BlobVideo.vue")['default']
 export const BlogSwiper: typeof import("../components/BlogSwiper.vue")['default']
 export const ConnectedBrandsSwiper: typeof import("../components/ConnectedBrandsSwiper.vue")['default']
-export const ContactForm: typeof import("../components/ContactForm.vue")['default']
 export const DbankReviews: typeof import("../components/DbankReviews.vue")['default']
 export const DrawerModal: typeof import("../components/DrawerModal.vue")['default']
 export const Footer: typeof import("../components/Footer.vue")['default']
@@ -243,7 +240,6 @@ export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/
 export const LazyBlobVideo: LazyComponent<typeof import("../components/BlobVideo.vue")['default']>
 export const LazyBlogSwiper: LazyComponent<typeof import("../components/BlogSwiper.vue")['default']>
 export const LazyConnectedBrandsSwiper: LazyComponent<typeof import("../components/ConnectedBrandsSwiper.vue")['default']>
-export const LazyContactForm: LazyComponent<typeof import("../components/ContactForm.vue")['default']>
 export const LazyDbankReviews: LazyComponent<typeof import("../components/DbankReviews.vue")['default']>
 export const LazyDrawerModal: LazyComponent<typeof import("../components/DrawerModal.vue")['default']>
 export const LazyFooter: LazyComponent<typeof import("../components/Footer.vue")['default']>

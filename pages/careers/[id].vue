@@ -77,7 +77,7 @@
       </div>
     </div>
     <DrawerModal v-model="showDrawer">
-      <nuxt-img src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
+      <img loading="lazy" src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
       <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="submitApplication">
         <div class="text-[#BB83FF] text-lg font-ninetea mb-1">Ready to Build the Future?</div>
         <div class="text-white font-thin text-2xl font-nyx mb-6 tracking-wider">DROP YOUR DETAILS BELOW.</div>
@@ -134,7 +134,7 @@
                   </div>
                 </Transition>
               </div>
-              <input type="tel" v-model="phone" @blur="phoneBlur" placeholder="Enter Your Phone Number"
+              <input type="tel" v-model="phone" @blur="phoneBlur" placeholder="Enter Phone Number"
                 class="flex-1 bg-[#1A1A1A] border border-[#474747] rounded px-3 py-2 text-white focus:outline-none focus:border-[#BB83FF]"
                 :class="{ 'border-red-500': phoneError }" />
             </div>
@@ -177,8 +177,8 @@
           <div class="text-xs text-[#888] px-1 pt-1">Max: 10MB ( Type : pdf, doc, png, jpeg, docx )</div>
         </div>
         <div class="text-xs text-[#888] mb-4">
-          The information you submit is processed in accordance with our <a href="#"
-            class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from
+          The information you submit is processed in accordance with our <nuxt-link to="/privacy-policy"
+            class="underline text-[#BB83FF]">Privacy Policy</nuxt-link> and By submitting you agree to receive communications from
           TechBank.
         </div>
         <div class="flex mb-4">

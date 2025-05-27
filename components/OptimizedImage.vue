@@ -6,7 +6,7 @@
     </div>
     
     <!-- Blurred Low Quality Image -->
-    <img
+    <img loading="lazy"
       v-if="lowQualitySrc"
       :src="lowQualitySrc"
       :alt="alt"
@@ -15,7 +15,7 @@
     />
     
     <!-- Main Image -->
-    <img
+    <img loading="lazy"
       :src="src"
       :alt="alt"
       :width="width"
