@@ -1,0 +1,1 @@
+.animate-fade-up[data-v-1fa98a94]{animation:fadeUp-1fa98a94 .8s ease-out forwards;opacity:0}@keyframes fadeUp-1fa98a94{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-pulse[data-v-1fa98a94]{animation:pulse-1fa98a94 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes pulse-1fa98a94{0%,to{opacity:1}50%{opacity:.5}}

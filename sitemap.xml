@@ -1,211 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/techbank-v2/__sitemap__/style.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/hero-bg.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/mob-hero-bg.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/comp.gif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/about-gif.avif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/product-card.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/dwallethome.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/dbankhome.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/bluetigers.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/kochibluetigers.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/bluetigerslondon.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/blogs</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/blog-bg-pattern.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/blog-sample.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/careers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/images/animatedstep.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/career-badge.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/contact</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/privacy-policy</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/products</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dwalletproduct.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/logo.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankproduct.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbanklogo.svg</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://mmuneesm99.github.io/techbank-v2/team</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/hero-bg.svg</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/hero-bg.svg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/mob-hero-bg.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/mob-hero-bg.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/comp.gif</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/comp.gif</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/about-gif.avif</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/about-gif.avif</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/product-card.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/product-card.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/dwallethome.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/dwallethome.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/dbankhome.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/dbankhome.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/bluetigers.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/bluetigers.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/kochibluetigers.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/kochibluetigers.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/bluetigerslondon.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/images/bluetigerslondon.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/blogs</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/blog-bg-pattern.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/blog-sample.webp</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/careers</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/animatedstep.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/career-badge.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/contact</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/privacy-policy</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/terms-and-conditions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/products</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dwalletproduct.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/logo.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankproduct.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbanklogo.svg</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/team</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/careers/1</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/techbank-v2</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/hero-bg.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/mob-hero-bg.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/comp.gif</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/about-gif.avif</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_80/images/product-bg-pattern.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/product-card.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/dwallethome.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/dbankhome.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/bluetigers.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/kochibluetigers.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/images/bluetigerslondon.webp</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/terms-and-conditions</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/careers/2</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/careers/1</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/careers/3</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/careers/2</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/careers/4</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/careers/3</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/careers/4</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/products/dbank</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/products/dbank</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankproduct.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankproduct.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankqr.svg</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankqr.svg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/stack.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/stack.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/star.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/star.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://mmuneesm99.github.io/techbank-v2/techbank-v2/products/dwallet</loc>
+        <loc>https://mmuneesm99.github.io/techbank-v2/products/dwallet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dwalletproduct.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dwalletproduct.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankqr.svg</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/dbankqr.svg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/product-bg-pattern.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/secure.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/secure.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/multiwallet.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/multiwallet.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://mmuneesm99.github.io/techbank-v2/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/singleseed.webp</image:loc>
+            <image:loc>https://mmuneesm99.github.io/_ipx/q_50&amp;amp;blur_3&amp;amp;s_10x10/images/singleseed.webp</image:loc>
         </image:image>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.3.0 at 2026-07-28T05:59:12.013Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.3.0 at 2026-07-28T06:13:41.347Z -->
