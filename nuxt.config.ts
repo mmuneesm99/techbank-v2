@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
+  nitro: {
+    preset: 'github_pages'
+  },
+
   app: {
+    baseURL: '/techbank-v2/',
     head: {
       title: 'TechBank',
       titleTemplate: '%s | TechBank',
@@ -18,7 +23,7 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'TechBank - Engineering The Future' },
         { property: 'og:description', content: 'TechBank - Engineering The Future. A blockchain product company creating decentralized tools to simplify digital finance.' },
         // { property: 'og:image', content: '/images/og-image.jpg' },
-        { property: 'og:url', content: 'https://techbank.com' },
+        { property: 'og:url', content: 'https://mmuneesm99.github.io/techbank-v2' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'TechBank - Engineering The Future' },
         { name: 'twitter:description', content: 'TechBank - Engineering The Future. A blockchain product company creating decentralized tools to simplify digital finance.' },
@@ -88,7 +93,11 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://techbank.com'
+    url: 'https://mmuneesm99.github.io'
+  },
+
+  robots: {
+    robotsTxt: false
   },
 
   sitemap: {

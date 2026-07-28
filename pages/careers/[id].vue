@@ -77,7 +77,7 @@
       </div>
     </div>
     <DrawerModal v-model="showDrawer">
-      <img src="/images/applymodel.webp" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
+      <img :src="assetPath('/images/applymodel.webp')" class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
 
       <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="handleSubmit">
         <div class="text-[#BB83FF] text-lg font-ninetea mb-1">Ready to Build the Future?</div>

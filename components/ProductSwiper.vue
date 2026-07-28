@@ -34,10 +34,10 @@ onMounted(() => {
       <ClientOnly>
         <swiper-container ref="containerRef" :init="true">
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
-            <img src="/images/product-card.webp" alt="DWallet product card background" width="100%" height="100%"
+            <img :src="assetPath('/images/product-card.webp')" alt="DWallet product card background" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
             <div class="absolute h-full inset-0 p-1 z-10 text-white">
-              <img src="/images/dwallethome.webp" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"
+              <img :src="assetPath('/images/dwallethome.webp')" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"
                 class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
               <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
                 <div class="">
@@ -57,10 +57,10 @@ onMounted(() => {
             </div>
           </swiper-slide>
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
-            <img src="/images/product-card.webp" alt="DBank product card background" width="100%" height="100%"
+            <img :src="assetPath('/images/product-card.webp')" alt="DBank product card background" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
             <div class="absolute h-full inset-0 p-1 z-10 text-white">
-              <img src="/images/dbankhome.webp" alt="DBank - Decentralized Banking Interface" width="100%" height="100%"
+              <img :src="assetPath('/images/dbankhome.webp')" alt="DBank - Decentralized Banking Interface" width="100%" height="100%"
                 class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
               <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
                 <div class="">
@@ -80,10 +80,10 @@ onMounted(() => {
             </div>
           </swiper-slide>
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
-            <img src="/images/product-card.webp" alt="DWallet product card background" width="100%" height="100%"
+            <img :src="assetPath('/images/product-card.webp')" alt="DWallet product card background" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
             <div class="absolute h-full inset-0 p-1 z-10 text-white">
-              <img src="/images/dwallethome.webp" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"
+              <img :src="assetPath('/images/dwallethome.webp')" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"
                 class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
               <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
                 <div class="">
@@ -103,10 +103,10 @@ onMounted(() => {
             </div>
           </swiper-slide>
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
-            <img src="/images/product-card.webp" alt="DBank product card background" width="100%" height="100%"
+            <img :src="assetPath('/images/product-card.webp')" alt="DBank product card background" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
             <div class="absolute h-full inset-0 p-1 z-10 text-white">
-              <img src="/images/dbankhome.webp" alt="DBank - Decentralized Banking Interface" width="100%" height="100%"
+              <img :src="assetPath('/images/dbankhome.webp')" alt="DBank - Decentralized Banking Interface" width="100%" height="100%"
                 class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
               <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
                 <div class="">

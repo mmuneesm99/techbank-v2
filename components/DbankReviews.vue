@@ -75,7 +75,7 @@ onMounted(() => {
               <div class="flex items-center justify-between relative w-full">
                 <div class="space-y-4 flex-1">
                   <div class="flex gap-5 items-center">
-                    <img :src="review.image" :alt="review.name" width="100%" height="100%" 
+                    <img :src="assetPath(review.image)" :alt="review.name" width="100%" height="100%" 
                       class="w-14 h-14 rounded-full object-cover border-2 border-[#BB83FF]" />
                     <div>
                       <h2 class="text-base font-thin font-ninetea text-white">{{ review.name }}</h2>

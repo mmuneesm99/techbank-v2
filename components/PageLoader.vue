@@ -13,7 +13,7 @@
                 class="text-base sm:text-xl text-[#A4A4A4] text-center mb-4 relative font-nyx tracking-widest">
                 Preparing Your Tech Experience...</h3>
               <div class="w-full flex items-center justify-center">
-                <img ref="compRef" src="/images/loader.gif" alt="TechBank Animation"
+                <img ref="compRef" :src="assetPath('/images/loader.gif')" alt="TechBank Animation"
                   class="w-[80px] sm:w-[100px] h-auto object-cover transition-all duration-300" />
               </div>
             </div>

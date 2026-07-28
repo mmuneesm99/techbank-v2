@@ -7,7 +7,7 @@
             </h2>
         </div>
         <div class="flex items-center justify-center -mt-5 relative overflow-x-hidden w-full md:px-10 pl-10 animate-fade-up" style="animation-delay: 0.2s">
-            <img src="/images/animatedstep.webp" alt="Join with us"
+            <img :src="assetPath('/images/animatedstep.webp')" alt="Join with us"
                 class="w-[400px] md:w-full max-w-[600px] md:ml-[200px] ml-[150px]"/>
         </div>
         <div

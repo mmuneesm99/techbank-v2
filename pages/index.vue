@@ -12,7 +12,7 @@
             <div
                 class="absolute bottom-0 w-full h-full flex flex-col items-center justify-end rounded-lg py-4 md:py-10">
                 <div class="absolute w-full h-full flex items-center justify-center">
-                    <img ref="compRef" src="/images/comp.gif" alt="TechBank Digital Finance Platform Animation"
+                    <img ref="compRef" :src="assetPath('/images/comp.gif')" alt="TechBank Digital Finance Platform Animation"
                         class="w-[120px] sm:w-[180px] md:w-[300px] h-auto object-cover rotate-[20deg] transition-all duration-300" />
                 </div>
                 <h3 ref="headerRef"
@@ -49,7 +49,7 @@
     <div
         class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 items-center grid-cols-1 gap-8 md:gap-20 lg:px-8 py-16 md:py-24 relative overflow-hidden">
         <div class="order-2 md:order-1">
-            <img src="/images/about-gif.avif" alt="TechBank Blockchain Technology Demonstration"
+            <img :src="assetPath('/images/about-gif.avif')" alt="TechBank Blockchain Technology Demonstration"
                 class="max-w-[300px] sm:max-w-[350px] md:max-w-[400px] h-auto rounded-lg shadow-lg mx-auto" loading="lazy" />
         </div>
         <div class="flex text-block flex-col md:items-start items-center order-1 md:order-2">
@@ -108,10 +108,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div v-for="product in products" :key="product.id"
                     class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] touch-manipulation">
-                    <img :src="product.bgImage" :alt="`${product.name} - Background Pattern`" width="100%" height="100%"
+                    <img :src="assetPath(product.bgImage)" :alt="`${product.name} - Background Pattern`" width="100%" height="100%"
                         class="w-full h-auto object-cover rounded-lg shadow-lg" loading="lazy" />
                     <div class="absolute h-full inset-0 p-1 z-10 text-white">
-                        <img :src="product.image" :alt="`${product.name} - Digital Finance Interface Preview`"
+                        <img :src="assetPath(product.image)" :alt="`${product.name} - Digital Finance Interface Preview`"
                             width="100%" height="100%" class="w-full object-cover rounded-lg shadow-lg"
                             loading="lazy" />
                         <div class="flex items-center justify-between relative w-full py-4 md:py-8 px-4">
@@ -183,7 +183,7 @@
                                 <Icon :name="social.icon" class="text-white text-[100px] w-6 mx-auto" />
                             </a>
                         </div>
-                        <img :src="brand.image" :alt="`${brand.name} - Connected Brand Platform Preview`" width="100%"
+                        <img :src="assetPath(brand.image)" :alt="`${brand.name} - Connected Brand Platform Preview`" width="100%"
                             height="100%" class="w-full h-auto object-cover rounded-lg shadow-lg mt-4" loading="lazy" />
                     </div>
                 </div>

@@ -13,11 +13,11 @@
                     <div class="flex items-center justify-center bottom-0 w-full px-10 md:py-10 right-0">
                         <!-- <video autoplay loop muted playsinline
                             class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
-                            <source src="/videos/interactive-keyboard.webm" type="video/webm">
+                            <source :src="assetPath('/videos/interactive-keyboard.webm')" type="video/webm">
                         </video> -->
                         <video autoplay loop muted playsinline
                             class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
-                            <source src="/videos/interactive-keyboard.webm" type="video/webm">
+                            <source :src="assetPath('/videos/interactive-keyboard.webm')" type="video/webm">
                         </video>
                     </div>
                 </div>
